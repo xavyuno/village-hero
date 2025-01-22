@@ -30,7 +30,8 @@ func HeadFollow(delta):
 
 func _physics_process(delta: float) -> void:
 	HeadFollow(delta)
-	#ArmsFollow(delta)
+	if Inventory.IsEquipped:
+		ArmsFollow(delta)
 
 func Point(delta):
 	if get_global_mouse_position().x >= global_position.x:

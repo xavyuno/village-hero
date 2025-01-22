@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Sword" load_steps=3 format=3 uid="uid://dt3d032ryg7vk"]
+
+[ext_resource type="Script" path="res://Game/Systems/Weapons/Swords/Main/SwordCore.gd" id="1_451k8"]
+[ext_resource type="Texture2D" uid="uid://dum6b42w1cfdx" path="res://Game/Assets/Icons/Weapons/Swords/Sword.png" id="1_efnh8"]
+
+[resource]
+script = ExtResource("1_451k8")
+Name = "SenKon"
+Damage = 6
+Icon = ExtResource("1_efnh8")
+AttackSpeed = 0.8

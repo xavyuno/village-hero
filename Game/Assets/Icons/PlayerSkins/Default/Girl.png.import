@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddcgi0eqait4s"
-path="res://godot/imported/Hitman.png-945f3e929e19749898704b56e97a3dce.ctex"
+uid="uid://das0l6xd7c0u1"
+path="res://godot/imported/Girl.png-d4f36c8cb50f62c19717612830d71b21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/Player/Default/Hitman.png"
-dest_files=["res://godot/imported/Hitman.png-945f3e929e19749898704b56e97a3dce.ctex"]
+source_file="res://Game/Assets/Icons/PlayerSkins/Default/Girl.png"
+dest_files=["res://godot/imported/Girl.png-d4f36c8cb50f62c19717612830d71b21.ctex"]
 
 [params]
 

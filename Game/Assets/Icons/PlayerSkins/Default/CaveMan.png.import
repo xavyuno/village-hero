@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dum6b42w1cfdx"
-path="res://godot/imported/Sword.png-76dd61a75f09bda682f66fce6cfbcc66.ctex"
+uid="uid://c330r5b12hc75"
+path="res://godot/imported/CaveMan.png-f4114ebdd82b32a1c5c4bc0528f41a2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/TestWeapons/Sword.png"
-dest_files=["res://godot/imported/Sword.png-76dd61a75f09bda682f66fce6cfbcc66.ctex"]
+source_file="res://Game/Assets/Icons/PlayerSkins/Default/CaveMan.png"
+dest_files=["res://godot/imported/CaveMan.png-f4114ebdd82b32a1c5c4bc0528f41a2e.ctex"]
 
 [params]
 

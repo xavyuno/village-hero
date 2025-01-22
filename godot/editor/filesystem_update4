@@ -5,3 +5,12 @@ res://Game/Assets/Interface/Inventory/inventory.tscn
 res://Game/Assets/Scenes/Player/body.gd
 res://Game/Assets/Scenes/Player/camera.gd
 res://Game/Assets/Scenes/Bullet/bullet.tscn
+res://Globals/System/Inventory.gd
+res://Private/Token.txt
+res://Game/Assets/Scenes/Player/hand.gd
+res://Game/Systems/Weapons/Swords/SwordCore.gd
+res://Game/Systems/Weapons/Swords/SenKon.tres
+res://Game/Systems/Weapons/Swords/Main/SwordIndex.gd
+res://Game/Systems/Weapons/Guns/Main/GunCore.gd
+res://Game/Systems/Weapons/Guns/Main/GunIndex.gd
+res://Globals/System/WeaponIndex.gd

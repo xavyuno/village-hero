@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c330r5b12hc75"
-path="res://godot/imported/CaveMan.png-d286ed0eec8582133f8c761603e7f686.ctex"
+uid="uid://dvhya7pva1y7a"
+path="res://godot/imported/Rifle.png-6c5ad0b34bf96f65f69bbdc1c9c25b6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/Player/Default/CaveMan.png"
-dest_files=["res://godot/imported/CaveMan.png-d286ed0eec8582133f8c761603e7f686.ctex"]
+source_file="res://Game/Assets/Icons/Weapons/Guns/Rifle.png"
+dest_files=["res://godot/imported/Rifle.png-6c5ad0b34bf96f65f69bbdc1c9c25b6c.ctex"]
 
 [params]
 

@@ -1,6 +1,9 @@
+res://Game/Systems/Weapons/Guns
+res://Globals/System
+res://Game/Systems/Weapons/Swords/Main
+res://Game/Systems/Weapons/Swords
 res://Game/Assets/Scenes/Bullet
 res://Game/Assets/Interface/Inventory
-res://Globals/System
 res://Globals/User
 res://Game/Assets/Scenes/Player
 C:/Users/xavie/AppData/Local/Android/Sdk

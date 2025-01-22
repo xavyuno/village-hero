@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvhya7pva1y7a"
-path="res://godot/imported/Sprite-0001.png-c6a5d5b2afaa9e49a561f8e96d15e78b.ctex"
+uid="uid://ddcgi0eqait4s"
+path="res://godot/imported/Hitman.png-19f6a1dfb33310c3de5368aee9686c8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/TestWeapons/Sprite-0001.png"
-dest_files=["res://godot/imported/Sprite-0001.png-c6a5d5b2afaa9e49a561f8e96d15e78b.ctex"]
+source_file="res://Game/Assets/Icons/PlayerSkins/Default/Hitman.png"
+dest_files=["res://godot/imported/Hitman.png-19f6a1dfb33310c3de5368aee9686c8f.ctex"]
 
 [params]
 

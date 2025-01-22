@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://das0l6xd7c0u1"
-path="res://godot/imported/Girl.png-94b1076750a110fc7070a468857c324c.ctex"
+uid="uid://dum6b42w1cfdx"
+path="res://godot/imported/Sword.png-d781695a071a51911247407c2cd23ef2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/Player/Default/Girl.png"
-dest_files=["res://godot/imported/Girl.png-94b1076750a110fc7070a468857c324c.ctex"]
+source_file="res://Game/Assets/Icons/Weapons/Swords/Sword.png"
+dest_files=["res://godot/imported/Sword.png-d781695a071a51911247407c2cd23ef2.ctex"]
 
 [params]
 

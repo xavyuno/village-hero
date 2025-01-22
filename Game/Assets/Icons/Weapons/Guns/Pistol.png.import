@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by1it7vhfe4b5"
-path="res://godot/imported/Sprite-0001.png-752c8ff753a0ccc35a24ed0433ddb337.ctex"
+uid="uid://buvaovbphlqjo"
+path="res://godot/imported/Pistol.png-472b76c969677953f2427e3fcdfe6f26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/TestItems/Sprite-0001.png"
-dest_files=["res://godot/imported/Sprite-0001.png-752c8ff753a0ccc35a24ed0433ddb337.ctex"]
+source_file="res://Game/Assets/Icons/Weapons/Guns/Pistol.png"
+dest_files=["res://godot/imported/Pistol.png-472b76c969677953f2427e3fcdfe6f26.ctex"]
 
 [params]
 

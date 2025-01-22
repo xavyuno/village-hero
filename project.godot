@@ -22,6 +22,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 ControllerIcons="*res://addons/controller_icons/ControllerIcons.gd"
 User="*res://Globals/User/User.gd"
 Inventory="*res://Globals/System/Inventory.gd"
+WeaponIndex="*res://Globals/System/WeaponIndex.gd"
 
 [debug]
 
@@ -44,6 +45,20 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/versatile-mobile-joystick/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Game/": "gray",
+"res://Game/Assets/Icons/": "green",
+"res://Game/Assets/Interface/": "teal",
+"res://Game/Assets/Scenes/": "yellow",
+"res://Game/Main/": "gray",
+"res://Game/Systems/": "orange",
+"res://Globals/": "red",
+"res://Private/": "gray",
+"res://addons/": "gray"
+}
 
 [importer_defaults]
 

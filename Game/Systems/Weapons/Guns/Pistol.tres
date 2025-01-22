@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://bx6fup5ga87ig"]
+
+[ext_resource type="Script" path="res://Game/Systems/Weapons/Guns/Main/GunCore.gd" id="1_1fxif"]
+
+[resource]
+script = ExtResource("1_1fxif")
+Name = ""
+Damage = 0
+AttackSpeed = 1.0
