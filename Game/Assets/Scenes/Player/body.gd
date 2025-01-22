@@ -1,22 +1,47 @@
 extends Node2D
 
+var Accel := 8.5
+
 @export var BodyIcon : Texture
 
-@onready var head: Sprite2D = $Head
-@onready var torso: Sprite2D = $Torso
-@onready var left_leg: Sprite2D = $LeftLeg
-@onready var right_leg: Sprite2D = $RightLeg
-@onready var left_arm: Sprite2D = $LeftArm
-@onready var right_arm: Sprite2D = $RightArm
+@onready var torso: Sprite2D = $Torso/Torso
+@onready var head: Sprite2D = $Head/Head
+@onready var right_arm: Sprite2D = $Arms/RightArm
+@onready var left_arm: Sprite2D = $Arms/LeftArm
+@onready var arms: Node2D = $Arms
+
+@onready var right_leg: Sprite2D = $RLeg/RightLeg
+@onready var left_leg: Sprite2D = $LLeg/LeftLeg
 
 
 func _ready() -> void:
 	for i in get_children():
-		i.texture = BodyIcon
+		if i is Node2D:
+			if i.name == "Arms":
+				i.get_child(1).texture = BodyIcon
+			i.get_child(0).texture = BodyIcon
+
+func HeadFollow(delta):
+	if get_global_mouse_position().x >= global_position.x:
+		head.scale = lerp(head.scale, Vector2(1, 1), Accel * delta)
+	else :
+		head.scale = lerp(head.scale, Vector2(1, -1), Accel * delta)
+	head.look_at(get_global_mouse_position())
 
 func _physics_process(delta: float) -> void:
+	HeadFollow(delta)
+	#ArmsFollow(delta)
+
+func Point(delta):
 	if get_global_mouse_position().x >= global_position.x:
-		head.scale = Vector2(1, 1)
+		right_arm.scale = lerp(right_arm.scale, Vector2(1, 1), Accel * delta)
 	else :
-		head.scale = Vector2(1, -1)
-	head.look_at(get_global_mouse_position())
+		right_arm.scale = lerp(arms.scale, Vector2(1, -1), Accel * delta)
+	right_arm.look_at(get_global_mouse_position())
+
+func ArmsFollow(delta):
+	if get_global_mouse_position().x >= global_position.x:
+		arms.scale = lerp(arms.scale, Vector2(1, 1), Accel * delta)
+	else :
+		arms.scale = lerp(arms.scale, Vector2(1, -1), Accel * delta)
+	arms.look_at(get_global_mouse_position())

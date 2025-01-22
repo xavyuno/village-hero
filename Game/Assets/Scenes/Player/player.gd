@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@onready var BodyAnim: AnimationPlayer = $Body/BodyAnim
+@onready var HandAnim: AnimationPlayer = $Body/HandAnim
+
 var Speed := 150.0
 var NormalSpeed := 150.0
 var SprintSpeed := 200.0
@@ -17,15 +20,13 @@ func Sprint():
 	if Input.is_action_just_released("Sprint"):
 		Speed = NormalSpeed
 
-func Movement(delta: float):
+func Anim():
 	if GetInputVel() != Vector2.ZERO:
-		$BodyAnim.play("Walking", 1, Speed / 150)
+		BodyAnim.play("Walking", 1, Speed / 150)
 	else :
-		$BodyAnim.play("Idle", 1)
-	
-	if Input.is_action_just_pressed("Interact"):
-		$AnimatedSprite2D.play("default")
-	
+		BodyAnim.play("Idle", 1)
+
+func Movement(delta: float):
 	velocity.x = lerp(velocity.x, GetInputVel().x, delta * Accel)
 	velocity.y = lerp(velocity.y, GetInputVel().y, delta * Accel)
 	
@@ -34,3 +35,4 @@ func Movement(delta: float):
 func _physics_process(delta: float) -> void:
 	Sprint()
 	Movement(delta)
+	Anim()

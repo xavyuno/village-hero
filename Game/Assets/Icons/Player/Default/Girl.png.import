@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y10rkforr22f"
-path="res://godot/imported/Sprite-0009.png-bdb94609173afe4c2a28b440696ca0d6.ctex"
+uid="uid://das0l6xd7c0u1"
+path="res://godot/imported/Girl.png-94b1076750a110fc7070a468857c324c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/TestBow/Sprite-0009.png"
-dest_files=["res://godot/imported/Sprite-0009.png-bdb94609173afe4c2a28b440696ca0d6.ctex"]
+source_file="res://Game/Assets/Icons/Player/Default/Girl.png"
+dest_files=["res://godot/imported/Girl.png-94b1076750a110fc7070a468857c324c.ctex"]
 
 [params]
 

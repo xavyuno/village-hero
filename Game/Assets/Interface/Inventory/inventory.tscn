@@ -148,3 +148,10 @@ offset_left = 63.0
 offset_top = 128.0
 offset_right = 191.0
 offset_bottom = 256.0
+
+[node name="Button2" type="Button" parent="HBoxContainer/Control/BG"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 32.0
+offset_right = 191.0
+offset_bottom = 160.0

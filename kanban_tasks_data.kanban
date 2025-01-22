@@ -31,7 +31,6 @@
 			"uuid": "5f3a9efc-c695-4c63-a4fa-846f045eae7d",
 			"title": "Todo",
 			"tasks": [
-				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
 				"54acd7bc-1bb1-4368-978d-2c24bc9b7919",
 				"2e60df61-703f-4903-922e-e8034b8e15fe",
 				"7dd79bc1-b2fb-4d47-a8ae-ca3dd97c82cd",
@@ -46,13 +45,15 @@
 			"uuid": "b513057a-39be-433c-b617-569654d1abd0",
 			"title": "Doing",
 			"tasks": [
-				"4b7f219e-a239-41de-8a34-80af7c748c42"
+				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f"
 			]
 		},
 		{
 			"uuid": "9052991e-d703-4637-a1b1-56706c5a0aa2",
 			"title": "Done",
-			"tasks": []
+			"tasks": [
+				"4b7f219e-a239-41de-8a34-80af7c748c42"
+			]
 		},
 		{
 			"uuid": "a90f7b88-de56-4785-81ab-140bffa3474a",
@@ -86,12 +87,12 @@
 					"done": true
 				},
 				{
-					"details": "Sword Hold anime",
-					"done": false
+					"details": "Sword Hold anim",
+					"done": true
 				},
 				{
 					"details": "Gun HoldAnim",
-					"done": false
+					"done": true
 				}
 			]
 		},

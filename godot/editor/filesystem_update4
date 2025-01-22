@@ -1,3 +1,7 @@
 res://Game/Main/main.tscn
-res://Game/Assets/Interface/Inventory/inventory.tscn
 res://Game/Assets/Scenes/Player/player.tscn
+res://Game/Assets/Scenes/Player/player.gd
+res://Game/Assets/Interface/Inventory/inventory.tscn
+res://Game/Assets/Scenes/Player/body.gd
+res://Game/Assets/Scenes/Player/camera.gd
+res://Game/Assets/Scenes/Bullet/bullet.tscn

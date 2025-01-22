@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg0amkk3bqc5q"
-path="res://godot/imported/Sprite-0006.png-df99346cbe3866b1885fb5a1082470d7.ctex"
+uid="uid://c330r5b12hc75"
+path="res://godot/imported/CaveMan.png-d286ed0eec8582133f8c761603e7f686.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/TestBow/Sprite-0006.png"
-dest_files=["res://godot/imported/Sprite-0006.png-df99346cbe3866b1885fb5a1082470d7.ctex"]
+source_file="res://Game/Assets/Icons/Player/Default/CaveMan.png"
+dest_files=["res://godot/imported/CaveMan.png-d286ed0eec8582133f8c761603e7f686.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://das0l6xd7c0u1"
-path="res://godot/imported/All.png-31eb25c0095a5b6e6092a2066cb8b97b.ctex"
+uid="uid://dvhya7pva1y7a"
+path="res://godot/imported/Sprite-0001.png-c6a5d5b2afaa9e49a561f8e96d15e78b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/Player/Default/All.png"
-dest_files=["res://godot/imported/All.png-31eb25c0095a5b6e6092a2066cb8b97b.ctex"]
+source_file="res://Game/Assets/Icons/TestWeapons/Sprite-0001.png"
+dest_files=["res://godot/imported/Sprite-0001.png-c6a5d5b2afaa9e49a561f8e96d15e78b.ctex"]
 
 [params]
 
