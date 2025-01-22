@@ -1,0 +1,14 @@
+AnimatedSprite2D
+Sprite2D
+AnimationPlayer
+Node2D
+Camera2D
+Button
+Control
+HBoxContainer
+Panel
+Label
+HFlowContainer
+ScrollContainer
+TabContainer
+TabBar

@@ -1,0 +1,405 @@
+{
+	"categories": [
+		{
+			"uuid": "a23684fe-5bbf-4f18-8ba2-635820a97c7d",
+			"title": "UI",
+			"color": "ffcb00"
+		},
+		{
+			"uuid": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"title": "System",
+			"color": "ff0000"
+		},
+		{
+			"uuid": "c1c725fe-3d82-4c96-883b-a9144e6ccbbc",
+			"title": "Mechanic",
+			"color": "54fc24"
+		},
+		{
+			"uuid": "a4dcd6fa-e9ac-4257-a459-27a2e3a4067c",
+			"title": "Audio",
+			"color": "00abff"
+		},
+		{
+			"uuid": "24b0a886-f3df-4b08-b535-bb3d6e42059e",
+			"title": "Game Juice",
+			"color": "6b1bcc"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "5f3a9efc-c695-4c63-a4fa-846f045eae7d",
+			"title": "Todo",
+			"tasks": [
+				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
+				"54acd7bc-1bb1-4368-978d-2c24bc9b7919",
+				"2e60df61-703f-4903-922e-e8034b8e15fe",
+				"7dd79bc1-b2fb-4d47-a8ae-ca3dd97c82cd",
+				"f126997c-4a2a-4d18-9742-8b23a74c345f",
+				"088f6610-6944-47b8-aef3-10d5e17e1775",
+				"47e5cd08-2116-4d83-b98a-33d4adc288eb",
+				"45d5440f-773b-440e-93bc-16d3f6ce60c9",
+				"a617feb4-f9d9-4452-a632-fa2efac592a7"
+			]
+		},
+		{
+			"uuid": "b513057a-39be-433c-b617-569654d1abd0",
+			"title": "Doing",
+			"tasks": [
+				"4b7f219e-a239-41de-8a34-80af7c748c42"
+			]
+		},
+		{
+			"uuid": "9052991e-d703-4637-a1b1-56706c5a0aa2",
+			"title": "Done",
+			"tasks": []
+		},
+		{
+			"uuid": "a90f7b88-de56-4785-81ab-140bffa3474a",
+			"title": "On Pause",
+			"tasks": [
+				"105e0281-6927-4052-8a21-b29ce4205ce3"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "4b7f219e-a239-41de-8a34-80af7c748c42",
+			"title": "Player",
+			"description": "The Character Mechanics used by the user to control the player",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "Basic Movement",
+					"done": true
+				},
+				{
+					"details": "Take Damage",
+					"done": true
+				},
+				{
+					"details": "Sprint",
+					"done": true
+				},
+				{
+					"details": "Controller Support",
+					"done": true
+				},
+				{
+					"details": "Sword Hold anime",
+					"done": false
+				},
+				{
+					"details": "Gun HoldAnim",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "105e0281-6927-4052-8a21-b29ce4205ce3",
+			"title": "Inventory",
+			"description": "Dictionary Based inventory system",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "Add Item Function",
+					"done": true
+				},
+				{
+					"details": "Remove Item Function",
+					"done": true
+				},
+				{
+					"details": "Amour Equip",
+					"done": false
+				},
+				{
+					"details": "Amour Unequip",
+					"done": false
+				},
+				{
+					"details": "Inventory size scale",
+					"done": false
+				},
+				{
+					"details": "Coin Pouch Scale",
+					"done": false
+				},
+				{
+					"details": "Equip Item",
+					"done": false
+				},
+				{
+					"details": "Interface",
+					"done": false
+				},
+				{
+					"details": "Controller Support",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
+			"title": "Combat",
+			"description": "",
+			"category": "c1c725fe-3d82-4c96-883b-a9144e6ccbbc",
+			"steps": [
+				{
+					"details": "Melee",
+					"done": false
+				},
+				{
+					"details": "Range",
+					"done": false
+				},
+				{
+					"details": "Controller support",
+					"done": false
+				},
+				{
+					"details": "Mobile Support",
+					"done": false
+				},
+				{
+					"details": "Shield",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "54acd7bc-1bb1-4368-978d-2c24bc9b7919",
+			"title": "Mining",
+			"description": "",
+			"category": "c1c725fe-3d82-4c96-883b-a9144e6ccbbc",
+			"steps": [
+				{
+					"details": "Generated Caves",
+					"done": false
+				},
+				{
+					"details": "Mine-able Ores",
+					"done": false
+				},
+				{
+					"details": "Controller Support",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "2e60df61-703f-4903-922e-e8034b8e15fe",
+			"title": "Items",
+			"description": "",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "Drop",
+					"done": false
+				},
+				{
+					"details": "Pickup",
+					"done": false
+				},
+				{
+					"details": "Controller Support",
+					"done": false
+				},
+				{
+					"details": "Mobile Support",
+					"done": false
+				},
+				{
+					"details": "Go to player if in raidus",
+					"done": false
+				},
+				{
+					"details": "Rarity",
+					"done": false
+				},
+				{
+					"details": "Limited",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "7dd79bc1-b2fb-4d47-a8ae-ca3dd97c82cd",
+			"title": "Multiplayer",
+			"description": "",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "Account Creation",
+					"done": false
+				},
+				{
+					"details": "Server Browse",
+					"done": false
+				},
+				{
+					"details": "Sync Cleints",
+					"done": false
+				},
+				{
+					"details": "Pvp",
+					"done": false
+				},
+				{
+					"details": "Trading",
+					"done": false
+				},
+				{
+					"details": "Chat",
+					"done": false
+				},
+				{
+					"details": "Voice Chat",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "f126997c-4a2a-4d18-9742-8b23a74c345f",
+			"title": "Mobile Controls",
+			"description": "",
+			"category": "a23684fe-5bbf-4f18-8ba2-635820a97c7d",
+			"steps": [
+				{
+					"details": "Player Movement",
+					"done": false
+				},
+				{
+					"details": "Player Interaction",
+					"done": false
+				},
+				{
+					"details": "Player Combat",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "088f6610-6944-47b8-aef3-10d5e17e1775",
+			"title": "Residents",
+			"description": "",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "AI",
+					"done": false
+				},
+				{
+					"details": "Interactable",
+					"done": false
+				},
+				{
+					"details": "Merchant",
+					"done": false
+				},
+				{
+					"details": "Weapon Smith",
+					"done": false
+				},
+				{
+					"details": "Amour Smith",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "47e5cd08-2116-4d83-b98a-33d4adc288eb",
+			"title": "Enemies",
+			"description": "",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "AI",
+					"done": false
+				},
+				{
+					"details": "Ranged",
+					"done": false
+				},
+				{
+					"details": "Close Combat",
+					"done": false
+				},
+				{
+					"details": "Drop Loot",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "45d5440f-773b-440e-93bc-16d3f6ce60c9",
+			"title": "Level System",
+			"description": "",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "Exp",
+					"done": false
+				},
+				{
+					"details": "Rewards",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "a617feb4-f9d9-4452-a632-fa2efac592a7",
+			"title": "Misc",
+			"description": "",
+			"category": "805001b1-6db0-4396-8fb0-61239eff2083",
+			"steps": [
+				{
+					"details": "Codes",
+					"done": false
+				},
+				{
+					"details": "Login Rewards",
+					"done": false
+				},
+				{
+					"details": "Character Customization",
+					"done": false
+				},
+				{
+					"details": "Seasonal Battle Pass",
+					"done": false
+				},
+				{
+					"details": "Holiday Events",
+					"done": false
+				},
+				{
+					"details": "Emotes",
+					"done": false
+				},
+				{
+					"details": "UGC Skins",
+					"done": false
+				},
+				{
+					"details": "UGC Items",
+					"done": false
+				}
+			]
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"5f3a9efc-c695-4c63-a4fa-846f045eae7d"
+			],
+			[
+				"b513057a-39be-433c-b617-569654d1abd0",
+				"a90f7b88-de56-4785-81ab-140bffa3474a"
+			],
+			[
+				"9052991e-d703-4637-a1b1-56706c5a0aa2"
+			]
+		]
+	}
+}

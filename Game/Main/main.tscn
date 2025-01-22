@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4cdi0kabgcin"]
+
+[ext_resource type="PackedScene" uid="uid://b88oryevus5rd" path="res://Game/Assets/Scenes/Player/player.tscn" id="1_vnf3y"]
+[ext_resource type="PackedScene" uid="uid://45dljis6sxbq" path="res://Game/Assets/Interface/Inventory/inventory.tscn" id="2_4fw1g"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.319486, 0.859375, 0.124207, 1)
+polygon = PackedVector2Array(256, -160, 192, 32, 320, 160, 480, 96, 480, 0, 416, -96)
+
+[node name="Player" parent="." instance=ExtResource("1_vnf3y")]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Inventory" parent="Interface" instance=ExtResource("2_4fw1g")]
