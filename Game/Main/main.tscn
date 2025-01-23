@@ -10,6 +10,7 @@ color = Color(0.319486, 0.859375, 0.124207, 1)
 polygon = PackedVector2Array(256, -160, 192, 32, 320, 160, 480, 96, 480, 0, 416, -96)
 
 [node name="Player" parent="." instance=ExtResource("1_vnf3y")]
+position = Vector2(-32, 0)
 
 [node name="Interface" type="CanvasLayer" parent="."]
 visible = false

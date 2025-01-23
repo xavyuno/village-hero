@@ -29,7 +29,7 @@ func Anim():
 func Movement(delta: float):
 	velocity.x = lerp(velocity.x, GetInputVel().x, delta * Accel)
 	velocity.y = lerp(velocity.y, GetInputVel().y, delta * Accel)
-	
+	User.PlayerPosition = global_position
 	move_and_slide()
 
 func _physics_process(delta: float) -> void:

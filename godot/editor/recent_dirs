@@ -1,5 +1,7 @@
-res://Game/Systems/Weapons/Guns
 res://Globals/System
+res://Game/Assets/Scenes/Enemy
+res://Game/Assets/Scenes/Despawn
+res://Game/Systems/Weapons/Guns
 res://Game/Systems/Weapons/Swords/Main
 res://Game/Systems/Weapons/Swords
 res://Game/Assets/Scenes/Bullet

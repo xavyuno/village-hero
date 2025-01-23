@@ -24,13 +24,23 @@ func _physics_process(delta: float) -> void:
 
 func DynamicCam(delta):
 	var CustomPos = position
-	if get_local_mouse_position().x > CamPos:
-		CustomPos.x = (CamPos * 2) / zoom.x
-	if get_local_mouse_position().x < -CamPos:
-		CustomPos.x = -CamPos / zoom.x
-	if get_local_mouse_position().y > CamPos:
-		CustomPos.y = CamPos / zoom.x
-	if get_local_mouse_position().y < -CamPos:
-		CustomPos.y = -CamPos / zoom.x
+	if System.Device == "Console":
+		if  (System.CursorPos.x * 55) > CamPos:
+			CustomPos.x = (CamPos * 2) / zoom.x
+		if (System.CursorPos.x * 55) < CamPos:
+			CustomPos.x = -CamPos / zoom.x
+		if (System.CursorPos.y * 55) > CamPos:
+			CustomPos.y = CamPos / zoom.y
+		if (System.CursorPos.y * 55) < CamPos:
+			CustomPos.y = -CamPos / zoom.y
+	if System.Device == "PC":
+		if get_local_mouse_position().x > CamPos:
+			CustomPos.x = (CamPos * 2) / zoom.x
+		if get_local_mouse_position().x < -CamPos:
+			CustomPos.x = -CamPos / zoom.x
+		if get_local_mouse_position().y > CamPos:
+			CustomPos.y = CamPos / zoom.y
+		if get_local_mouse_position().y < -CamPos:
+			CustomPos.y = -CamPos / zoom.y
 
 	position = lerp(position, CustomPos, 5 * delta)

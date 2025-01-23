@@ -13,36 +13,47 @@ var Accel := 8.5
 @onready var right_leg: Sprite2D = $RLeg/RightLeg
 @onready var left_leg: Sprite2D = $LLeg/LeftLeg
 
+var NODES = []
 
 func _ready() -> void:
-	for i in get_children():
-		if i is Node2D:
-			if i.name == "Arms":
-				i.get_child(1).texture = BodyIcon
-			i.get_child(0).texture = BodyIcon
+	NODES = [torso, right_arm, right_leg, left_arm, left_leg, head]
+	for i in NODES:
+			i.texture = BodyIcon
 
 func HeadFollow(delta):
-	if get_global_mouse_position().x >= global_position.x:
+	if System.MainCursor.x >= global_position.x:
 		head.scale = lerp(head.scale, Vector2(1, 1), Accel * delta)
 	else :
 		head.scale = lerp(head.scale, Vector2(1, -1), Accel * delta)
-	head.look_at(get_global_mouse_position())
+	head.look_at(System.MainCursor)
+
+func FollowCustomCursor():
+	if System.Device == "PC":
+		System.MainCursor = get_global_mouse_position()
+	else :
+		if System.CursorPos == Vector2.ZERO:
+			$Cursor.position = System.CursorPos + Vector2(System.CursorPos.x + System.LastLookDir * 55, 0)
+			System.MainCursor = $Cursor.global_position
+		else :
+			$Cursor.position = System.CursorPos + Vector2(System.CursorPos.x, 0)
+			System.MainCursor = $Cursor.global_position
+	if Input.is_action_just_pressed("JoyLeft"):
+		System.LastLookDir = -1
+	if Input.is_action_just_pressed("JoyRight"):
+		System.LastLookDir = 1
 
 func _physics_process(delta: float) -> void:
+	FollowCustomCursor()
 	HeadFollow(delta)
 	if Inventory.IsEquipped:
 		ArmsFollow(delta)
-
-func Point(delta):
-	if get_global_mouse_position().x >= global_position.x:
-		right_arm.scale = lerp(right_arm.scale, Vector2(1, 1), Accel * delta)
 	else :
-		right_arm.scale = lerp(arms.scale, Vector2(1, -1), Accel * delta)
-	right_arm.look_at(get_global_mouse_position())
+		arms.rotation = 0
+		arms.scale = lerp(arms.scale, Vector2(1, 1), Accel * delta)
 
 func ArmsFollow(delta):
-	if get_global_mouse_position().x >= global_position.x:
+	if System.MainCursor.x >= global_position.x:
 		arms.scale = lerp(arms.scale, Vector2(1, 1), Accel * delta)
 	else :
 		arms.scale = lerp(arms.scale, Vector2(1, -1), Accel * delta)
-	arms.look_at(get_global_mouse_position())
+	arms.look_at(System.MainCursor)

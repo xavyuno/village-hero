@@ -4,12 +4,46 @@ var Data := {}
 
 var IsEquipped := false
 var EquippedItem := {}
+var WeaponSlot := 1
 
 var PrimaryWeapon := {}
 var SecondaryWeapon := {}
 
 func _ready() -> void:
-	AddWeapon(SwordIndex.GetSword("SenKon"))
+	AddWeapon(WeaponIndex.GetSword("SenKon"))
+	AddWeapon(WeaponIndex.GetGun("Rifle"))
+
+func _physics_process(delta: float) -> void:
+	IsEquipped = !EquippedItem.is_empty()
+	if Input.is_action_just_pressed("SwitchWeapon"):
+		match WeaponSlot:
+			1:
+				WeaponSlot = 2
+			2:
+				WeaponSlot = 1
+		SwitchWeapons(WeaponSlot)
+
+func SwitchWeapons(Slot: int):
+	match Slot:
+		1:
+			if !PrimaryWeapon.is_empty():
+				if EquippedItem == PrimaryWeapon:
+					EquippedItem = {}
+				else :
+					EquippedItem = PrimaryWeapon
+					IsEquipped = true
+			else :
+				EquippedItem = {}
+		2:
+			if !SecondaryWeapon.is_empty():
+				if EquippedItem == SecondaryWeapon:
+					EquippedItem = {}
+				else :
+					EquippedItem = SecondaryWeapon
+					IsEquipped = true
+			else :
+				EquippedItem = {}
+
 
 func AddWeapon(WeaponData: Dictionary, Amount = 1):
 	if Data.has(WeaponData["Name"]):

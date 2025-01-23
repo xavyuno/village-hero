@@ -1,9 +1,15 @@
-[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://bx6fup5ga87ig"]
+[gd_resource type="Resource" script_class="Gun" load_steps=3 format=3 uid="uid://bx6fup5ga87ig"]
 
 [ext_resource type="Script" path="res://Game/Systems/Weapons/Guns/Main/GunCore.gd" id="1_1fxif"]
+[ext_resource type="Texture2D" uid="uid://buvaovbphlqjo" path="res://Game/Assets/Icons/Weapons/Guns/Pistol.png" id="1_ytosf"]
 
 [resource]
 script = ExtResource("1_1fxif")
-Name = ""
-Damage = 0
-AttackSpeed = 1.0
+Name = "Pistol"
+Damage = 13
+Icon = ExtResource("1_ytosf")
+AttackSpeed = 1.2
+MagSize = 10
+MaxMag = 5
+BulletSpeed = 300
+ReloadSpeed = 0.8

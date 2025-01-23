@@ -45,7 +45,8 @@
 			"uuid": "b513057a-39be-433c-b617-569654d1abd0",
 			"title": "Doing",
 			"tasks": [
-				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f"
+				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
+				"105e0281-6927-4052-8a21-b29ce4205ce3"
 			]
 		},
 		{
@@ -58,9 +59,7 @@
 		{
 			"uuid": "a90f7b88-de56-4785-81ab-140bffa3474a",
 			"title": "On Pause",
-			"tasks": [
-				"105e0281-6927-4052-8a21-b29ce4205ce3"
-			]
+			"tasks": []
 		}
 	],
 	"tasks": [
@@ -148,19 +147,15 @@
 			"steps": [
 				{
 					"details": "Melee",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Range",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Controller support",
-					"done": false
-				},
-				{
-					"details": "Mobile Support",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Shield",

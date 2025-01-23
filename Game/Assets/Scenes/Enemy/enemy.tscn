@@ -1,37 +1,38 @@
-[gd_scene load_steps=27 format=3 uid="uid://b88oryevus5rd"]
+[gd_scene load_steps=24 format=3 uid="uid://du0jjf6f5gusu"]
 
-[ext_resource type="Script" path="res://Game/Assets/Scenes/Player/player.gd" id="1_idtnq"]
-[ext_resource type="Script" path="res://Game/Assets/Scenes/Player/camera.gd" id="2_fkw17"]
-[ext_resource type="Texture2D" uid="uid://dilvh3vjqywkk" path="res://Game/Assets/Icons/Shadow/Shadow.png" id="2_frgoi"]
-[ext_resource type="Script" path="res://Game/Assets/Scenes/Player/body.gd" id="2_tl0fj"]
-[ext_resource type="Texture2D" uid="uid://ddcgi0eqait4s" path="res://Game/Assets/Icons/PlayerSkins/Default/Hitman.png" id="6_bdinx"]
-[ext_resource type="Script" path="res://Game/Assets/Scenes/Player/hand.gd" id="6_uocwl"]
-[ext_resource type="Texture2D" uid="uid://dum6b42w1cfdx" path="res://Game/Assets/Icons/Weapons/Swords/Sword.png" id="7_832e8"]
-[ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="8_7fd6b"]
+[ext_resource type="Script" path="res://Game/Assets/Scenes/Enemy/enemy.gd" id="1_ggml4"]
+[ext_resource type="Texture2D" uid="uid://ddcgi0eqait4s" path="res://Game/Assets/Icons/PlayerSkins/Default/Hitman.png" id="1_jqrvr"]
+[ext_resource type="Texture2D" uid="uid://dum6b42w1cfdx" path="res://Game/Assets/Icons/Weapons/Swords/Sword.png" id="2_3mhpw"]
+[ext_resource type="Texture2D" uid="uid://c330r5b12hc75" path="res://Game/Assets/Icons/PlayerSkins/Default/CaveMan.png" id="2_6kbhk"]
+[ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="3_w1oyd"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w1blw"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rj4f4"]
+radius = 5.0
+height = 48.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mfacu"]
 particles_animation = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Gradient" id="Gradient_x4ids"]
+[sub_resource type="Gradient" id="Gradient_evktb"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ib4e5"]
-gradient = SubResource("Gradient_x4ids")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_17o20"]
+gradient = SubResource("Gradient_evktb")
 
-[sub_resource type="Curve" id="Curve_fn62g"]
+[sub_resource type="Curve" id="Curve_amv5b"]
 max_value = 2.0
 _data = [Vector2(0.0183486, 0.384615), 0.0, 0.0, 0, 0, Vector2(0.348624, 0.681319), -5.98901, -5.98901, 0, 0, Vector2(0.701835, 0.10989), -8.38463, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_u8uag"]
+[sub_resource type="Gradient" id="Gradient_caqq3"]
 offsets = PackedFloat32Array(0, 0.536842, 1)
 colors = PackedColorArray(0.347656, 0.347656, 0.347656, 1, 0.65625, 0.651123, 0.651123, 1, 1, 1, 1, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh3hd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gawq8"]
 size = Vector2(20, 69.1667)
 
 [sub_resource type="Animation" id="Animation_u8fo6"]
@@ -825,32 +826,24 @@ _data = {
 "Shoot": SubResource("Animation_gwlfx")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ujt0t"]
-radius = 5.0
-height = 16.0
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Enemy" type="Node2D"]
 scale = Vector2(2, 2)
-script = ExtResource("1_idtnq")
+script = ExtResource("1_ggml4")
+BodyIcon = ExtResource("2_6kbhk")
 
-[node name="Camera" type="Camera2D" parent="."]
-limit_smoothed = true
-script = ExtResource("2_fkw17")
+[node name="HitBox" type="StaticBody2D" parent="." groups=["Entity"]]
 
-[node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(0.5, 25)
-texture = ExtResource("2_frgoi")
+[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, 7.5)
+shape = SubResource("CapsuleShape2D_rj4f4")
 
 [node name="Body" type="Node2D" parent="."]
-script = ExtResource("2_tl0fj")
-BodyIcon = ExtResource("6_bdinx")
 
 [node name="Torso" type="Node2D" parent="Body"]
 position = Vector2(-2, -1.5)
 
 [node name="Torso" type="Sprite2D" parent="Body/Torso"]
-texture = ExtResource("6_bdinx")
+texture = ExtResource("1_jqrvr")
 offset = Vector2(0, -0.3)
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 32)
@@ -859,7 +852,7 @@ region_rect = Rect2(0, 0, 16, 32)
 position = Vector2(-5.5, 16)
 
 [node name="RightLeg" type="Sprite2D" parent="Body/RLeg"]
-texture = ExtResource("6_bdinx")
+texture = ExtResource("1_jqrvr")
 offset = Vector2(-4, 0)
 region_enabled = true
 region_rect = Rect2(48, 0, 16, 32)
@@ -868,7 +861,7 @@ region_rect = Rect2(48, 0, 16, 32)
 position = Vector2(1.5, 16)
 
 [node name="LeftLeg" type="Sprite2D" parent="Body/LLeg"]
-texture = ExtResource("6_bdinx")
+texture = ExtResource("1_jqrvr")
 offset = Vector2(-4, 0)
 region_enabled = true
 region_rect = Rect2(48, 0, 16, 32)
@@ -878,25 +871,25 @@ position = Vector2(0, -3.5)
 
 [node name="RightArm" type="Sprite2D" parent="Body/Arms"]
 position = Vector2(7, 0)
-texture = ExtResource("6_bdinx")
+texture = ExtResource("1_jqrvr")
 offset = Vector2(-5, 2)
 region_enabled = true
 region_rect = Rect2(32, 0, 16, 32)
 
 [node name="Hand" type="Node2D" parent="Body/Arms/RightArm"]
 position = Vector2(1.5, 13)
-script = ExtResource("6_uocwl")
 metadata/_edit_group_ = true
 
 [node name="Sword" type="Sprite2D" parent="Body/Arms/RightArm/Hand"]
+visible = false
 position = Vector2(11.5, 2.5)
 rotation = 1.57079
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("7_832e8")
+texture = ExtResource("2_3mhpw")
 
 [node name="Slash" type="CPUParticles2D" parent="Body/Arms/RightArm/Hand/Sword"]
 self_modulate = Color(1, 1, 1, 0.392157)
-material = SubResource("CanvasItemMaterial_w1blw")
+material = SubResource("CanvasItemMaterial_mfacu")
 position = Vector2(-14.9867, -24.5535)
 emitting = false
 amount = 100
@@ -905,7 +898,7 @@ explosiveness = 0.1
 randomness = 1.0
 lifetime_randomness = 1.0
 draw_order = 1
-texture = SubResource("GradientTexture2D_ib4e5")
+texture = SubResource("GradientTexture2D_17o20")
 emission_shape = 3
 emission_rect_extents = Vector2(10, 5)
 direction = Vector2(10, 10)
@@ -915,8 +908,8 @@ angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 0.05
 scale_amount_max = 0.2
-scale_amount_curve = SubResource("Curve_fn62g")
-color_ramp = SubResource("Gradient_u8uag")
+scale_amount_curve = SubResource("Curve_amv5b")
+color_ramp = SubResource("Gradient_caqq3")
 anim_speed_min = 1.0
 anim_speed_max = 10.0
 
@@ -924,14 +917,14 @@ anim_speed_max = 10.0
 
 [node name="Collision" type="CollisionShape2D" parent="Body/Arms/RightArm/Hand/Sword/HitBox"]
 position = Vector2(9.53674e-07, -2.91667)
-shape = SubResource("RectangleShape2D_xh3hd")
+shape = SubResource("RectangleShape2D_gawq8")
 disabled = true
 
 [node name="Gun" type="Sprite2D" parent="Body/Arms/RightArm/Hand"]
 visible = false
 position = Vector2(0.5, -0.5)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("8_7fd6b")
+texture = ExtResource("3_w1oyd")
 
 [node name="Barrel" type="Marker2D" parent="Body/Arms/RightArm/Hand/Gun"]
 position = Vector2(30, 3.33333)
@@ -943,7 +936,7 @@ scale = Vector2(0.3, 0.3)
 
 [node name="LeftArm" type="Sprite2D" parent="Body/Arms"]
 position = Vector2(-7, 0)
-texture = ExtResource("6_bdinx")
+texture = ExtResource("1_jqrvr")
 offset = Vector2(5, 2)
 flip_h = true
 region_enabled = true
@@ -953,7 +946,7 @@ region_rect = Rect2(32, 0, 16, 32)
 position = Vector2(0.5, -10)
 
 [node name="Head" type="Sprite2D" parent="Body/Head"]
-texture = ExtResource("6_bdinx")
+texture = ExtResource("1_jqrvr")
 offset = Vector2(-2, -16)
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 32)
@@ -973,13 +966,9 @@ libraries = {
 autoplay = "RESET"
 playback_default_blend_time = 0.15
 
-[node name="Cursor" type="Polygon2D" parent="Body"]
-color = Color(0.125, 1, 0, 1)
-polygon = PackedVector2Array(-2.5, -1.5, -2.5, 2.5, 2.5, 3, 2.5, -2.5)
-
-[node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 24)
-shape = SubResource("CapsuleShape2D_ujt0t")
-
-[connection signal="body_entered" from="Body/Arms/RightArm/Hand/Sword/HitBox" to="Body/Arms/RightArm/Hand" method="_on_hit_box_body_entered"]
-[connection signal="animation_finished" from="Body/HandAnim" to="Body/Arms/RightArm/Hand" method="_on_hand_anim_animation_finished"]
+[node name="Health" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 24.0
+offset_bottom = -25.0
+text = "HP:"

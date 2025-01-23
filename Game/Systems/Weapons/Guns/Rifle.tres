@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="Gun" load_steps=2 format=3 uid="uid://il4ahyabudj5"]
+[gd_resource type="Resource" script_class="Gun" load_steps=3 format=3 uid="uid://il4ahyabudj5"]
 
+[ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="1_dxb1l"]
 [ext_resource type="Script" path="res://Game/Systems/Weapons/Guns/Main/GunCore.gd" id="1_yxf4q"]
 
 [resource]
 script = ExtResource("1_yxf4q")
-Name = ""
-Damage = 1
-AttackSpeed = 1.0
-SprayAmount = 1
+Name = "Rifle"
+Damage = 6
+Icon = ExtResource("1_dxb1l")
+AttackSpeed = 1.6
+MagSize = 10
+MaxMag = 110
+BulletSpeed = 300
 ReloadSpeed = 1.5
-MaxMag = 10
-MaxBulletsPerMag = 5
