@@ -1,18 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4cdi0kabgcin"]
+[gd_scene load_steps=5 format=3 uid="uid://c4cdi0kabgcin"]
 
 [ext_resource type="PackedScene" uid="uid://b88oryevus5rd" path="res://Game/Assets/Scenes/Player/player.tscn" id="1_vnf3y"]
 [ext_resource type="PackedScene" uid="uid://45dljis6sxbq" path="res://Game/Assets/Interface/Inventory/inventory.tscn" id="2_4fw1g"]
+[ext_resource type="PackedScene" uid="uid://dlc3pjmasn0uq" path="res://Game/Assets/Scenes/Item/item.tscn" id="3_pwajn"]
+[ext_resource type="Resource" uid="uid://bx6fup5ga87ig" path="res://Game/Systems/Weapons/Guns/Pistol.tres" id="4_a6yig"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="Interface" instance=ExtResource("2_4fw1g")]
+visible = false
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Enviroment" type="Node2D" parent="World"]
+
+[node name="Polygon2D" type="Polygon2D" parent="World/Enviroment"]
 color = Color(0.319486, 0.859375, 0.124207, 1)
 polygon = PackedVector2Array(256, -160, 192, 32, 320, 160, 480, 96, 480, 0, 416, -96)
 
-[node name="Player" parent="." instance=ExtResource("1_vnf3y")]
+[node name="Item" parent="World/Enviroment" instance=ExtResource("3_pwajn")]
+position = Vector2(-320, 96)
+PreData = ExtResource("4_a6yig")
+
+[node name="Enemies" type="Node2D" parent="World"]
+
+[node name="Node2D4" type="Node2D" parent="World"]
+
+[node name="Player" type="Node2D" parent="World"]
+
+[node name="Player" parent="World/Player" instance=ExtResource("1_vnf3y")]
 position = Vector2(-32, 0)
-
-[node name="Interface" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="Inventory" parent="Interface" instance=ExtResource("2_4fw1g")]

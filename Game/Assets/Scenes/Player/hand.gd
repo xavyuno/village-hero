@@ -14,6 +14,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("SecondaryWeapon"):
 		Inventory.SwitchWeapons(2)
 	
+	if Input.is_action_just_pressed("Drop") and !Inventory.EquippedItem.is_empty():
+		Drop()
+	
 	if Inventory.IsEquipped and !Inventory.EquippedItem.is_empty():
 		Equipped()
 	else :
@@ -21,9 +24,6 @@ func _physics_process(delta: float) -> void:
 		gun.visible = false
 		item.visible = false
 		HandAnim.play("RESET")
-
-func Attack():
-	pass
 
 func Shoot(GunData : Dictionary):
 	var Bullet = preload("res://Game/Assets/Scenes/Bullet/bullet.tscn").instantiate()
@@ -36,7 +36,12 @@ func Reload():
 	pass
 
 func Drop():
-	pass
+	var DroppedItem = preload("res://Game/Assets/Scenes/Item/item.tscn").instantiate()
+	DroppedItem.ItemData = Inventory.EquippedItem
+	DroppedItem.global_position = global_position
+	get_tree().current_scene.get_node("World/Enviroment").add_child(DroppedItem)
+	Inventory.RemoveWeapon(Inventory.EquippedItem["Name"])
+	Inventory.UnEquip()
 
 func Equipped():
 	if Inventory.EquippedItem["Type"] == "Item":

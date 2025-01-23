@@ -32,7 +32,6 @@
 			"title": "Todo",
 			"tasks": [
 				"54acd7bc-1bb1-4368-978d-2c24bc9b7919",
-				"2e60df61-703f-4903-922e-e8034b8e15fe",
 				"7dd79bc1-b2fb-4d47-a8ae-ca3dd97c82cd",
 				"f126997c-4a2a-4d18-9742-8b23a74c345f",
 				"088f6610-6944-47b8-aef3-10d5e17e1775",
@@ -45,7 +44,7 @@
 			"uuid": "b513057a-39be-433c-b617-569654d1abd0",
 			"title": "Doing",
 			"tasks": [
-				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
+				"2e60df61-703f-4903-922e-e8034b8e15fe",
 				"105e0281-6927-4052-8a21-b29ce4205ce3"
 			]
 		},
@@ -59,7 +58,9 @@
 		{
 			"uuid": "a90f7b88-de56-4785-81ab-140bffa3474a",
 			"title": "On Pause",
-			"tasks": []
+			"tasks": [
+				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f"
+			]
 		}
 	],
 	"tasks": [
@@ -119,7 +120,7 @@
 				},
 				{
 					"details": "Inventory size scale",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Coin Pouch Scale",
@@ -127,7 +128,7 @@
 				},
 				{
 					"details": "Equip Item",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Interface",
@@ -191,11 +192,11 @@
 			"steps": [
 				{
 					"details": "Drop",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Pickup",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Controller Support",
@@ -211,11 +212,11 @@
 				},
 				{
 					"details": "Rarity",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Limited",
-					"done": false
+					"done": true
 				}
 			]
 		},

@@ -13,3 +13,6 @@ MagSize = 10
 MaxMag = 110
 BulletSpeed = 300
 ReloadSpeed = 1.5
+MaxPhases = 1
+Amount = 1
+Rarity = null

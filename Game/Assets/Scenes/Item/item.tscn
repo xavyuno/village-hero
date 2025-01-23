@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlc3pjmasn0uq"]
+
+[ext_resource type="Script" path="res://Game/Assets/Scenes/Item/item.gd" id="1_2mvix"]
+[ext_resource type="Texture2D" uid="uid://dum6b42w1cfdx" path="res://Game/Assets/Icons/Weapons/Swords/Sword.png" id="2_gjk8w"]
+[ext_resource type="Shader" path="res://Game/Assets/Shaders/Outline.gdshader" id="3_kgj58"]
+[ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="3_vj7mh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrcuk"]
+size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcpp4"]
+shader = ExtResource("3_kgj58")
+shader_parameter/color = Color(0.0078125, 0.0078125, 0.0078125, 1)
+shader_parameter/thickness = 0.5
+shader_parameter/tolerance = 0.0
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+
+[node name="Item" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_2mvix")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vrcuk")
+disabled = true
+
+[node name="SwordShadow" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.392157)
+position = Vector2(14.5, 4.5)
+scale = Vector2(0.56, 0.56)
+skew = 0.872665
+texture = ExtResource("2_gjk8w")
+
+[node name="GunShadow" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.392157)
+position = Vector2(4, 5.5)
+scale = Vector2(0.56, 0.56)
+skew = 0.872665
+texture = ExtResource("3_vj7mh")
+
+[node name="Icon" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_dcpp4")
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(16, 32)
+texture = ExtResource("3_vj7mh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

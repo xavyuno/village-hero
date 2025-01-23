@@ -13,3 +13,6 @@ MagSize = 10
 MaxMag = 5
 BulletSpeed = 300
 ReloadSpeed = 0.8
+MaxPhases = 1
+Amount = 1
+Rarity = PackedStringArray()

@@ -1,138 +1,65 @@
-[gd_scene format=3 uid="uid://45dljis6sxbq"]
+[gd_scene load_steps=5 format=3 uid="uid://45dljis6sxbq"]
+
+[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/inventory.gd" id="1_b8ceb"]
+[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/inventory_holder.gd" id="2_tpgqy"]
+[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/character.gd" id="3_plvuy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60fam"]
+content_margin_left = 10.0
+content_margin_top = 10.0
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
-offset_right = -448.0
-offset_bottom = -224.0
+offset_left = 256.0
+offset_top = 96.0
+offset_right = -256.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_b8ceb")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Holder" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_top = 32.0
 offset_right = 768.0
 offset_bottom = 448.0
 
-[node name="TabContainer" type="TabContainer" parent="HBoxContainer"]
+[node name="InventoryHolder" type="Control" parent="Holder"]
 layout_mode = 2
 size_flags_horizontal = 3
-current_tab = 0
+script = ExtResource("2_tpgqy")
 
-[node name="All" type="Control" parent="HBoxContainer/TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TabContainer/All"]
+[node name="BG" type="Panel" parent="Holder/InventoryHolder"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = -8.0
-offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HFlowContainer" type="HFlowContainer" parent="HBoxContainer/TabContainer/All/ScrollContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Holder/InventoryHolder"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 416.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_60fam")
+follow_focus = true
+
+[node name="Holder" type="HFlowContainer" parent="Holder/InventoryHolder/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-
-[node name="Amount" type="Label" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer/Button"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 57.0
-offset_right = 88.0
-offset_bottom = 89.0
-text = "120"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button2" type="Button" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-
-[node name="Amount" type="Label" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer/Button2"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 57.0
-offset_right = 88.0
-offset_bottom = 89.0
-text = "120"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button3" type="Button" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-
-[node name="Amount" type="Label" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer/Button3"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 57.0
-offset_right = 88.0
-offset_bottom = 89.0
-text = "120"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button4" type="Button" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-
-[node name="Amount" type="Label" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer/Button4"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 57.0
-offset_right = 88.0
-offset_bottom = 89.0
-text = "120"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button5" type="Button" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-
-[node name="Amount" type="Label" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer/Button5"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 57.0
-offset_right = 88.0
-offset_bottom = 89.0
-text = "120"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button6" type="Button" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer"]
-custom_minimum_size = Vector2(90, 90)
-layout_mode = 2
-
-[node name="Amount" type="Label" parent="HBoxContainer/TabContainer/All/ScrollContainer/HFlowContainer/Button6"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 57.0
-offset_right = 88.0
-offset_bottom = 89.0
-text = "120"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Control" type="Control" parent="HBoxContainer"]
+[node name="Character" type="Control" parent="Holder"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
+script = ExtResource("3_plvuy")
 
-[node name="BG" type="Panel" parent="HBoxContainer/Control"]
+[node name="BG" type="Panel" parent="Holder/Character"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,16 +69,37 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="Button" type="Button" parent="HBoxContainer/Control/BG"]
+[node name="WeaponHolder" type="HBoxContainer" parent="Holder/Character"]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 128.0
-offset_right = 191.0
-offset_bottom = 256.0
-
-[node name="Button2" type="Button" parent="HBoxContainer/Control/BG"]
-layout_mode = 0
-offset_left = 63.0
+offset_left = 32.0
 offset_top = 32.0
-offset_right = 191.0
-offset_bottom = 160.0
+offset_right = 224.0
+offset_bottom = 96.0
+
+[node name="PrimaryWeapon" type="Button" parent="Holder/Character/WeaponHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SecondaryWeapon" type="Button" parent="Holder/Character/WeaponHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Shield" type="Button" parent="Holder/Character/WeaponHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpecialAbility" type="Button" parent="Holder/Character"]
+layout_mode = 2
+offset_left = 177.0
+offset_top = 320.0
+offset_right = 241.0
+offset_bottom = 384.0
+size_flags_horizontal = 3
+
+[node name="Amour" type="Button" parent="Holder/Character"]
+layout_mode = 2
+offset_left = 81.0
+offset_top = 160.0
+offset_right = 145.0
+offset_bottom = 224.0
+size_flags_horizontal = 3

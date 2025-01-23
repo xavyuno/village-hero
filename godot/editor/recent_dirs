@@ -1,3 +1,6 @@
+res://Game/Assets/Shaders
+res://Game/Assets/Interface/Inventory
+res://Game/Assets/Scenes/Item
 res://Globals/System
 res://Game/Assets/Scenes/Enemy
 res://Game/Assets/Scenes/Despawn
@@ -5,7 +8,6 @@ res://Game/Systems/Weapons/Guns
 res://Game/Systems/Weapons/Swords/Main
 res://Game/Systems/Weapons/Swords
 res://Game/Assets/Scenes/Bullet
-res://Game/Assets/Interface/Inventory
 res://Globals/User
 res://Game/Assets/Scenes/Player
 C:/Users/xavie/AppData/Local/Android/Sdk
