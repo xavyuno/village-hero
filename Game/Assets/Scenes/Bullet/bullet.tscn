@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/Assets/Scenes/Bullet/bullet.gd" id="1_gm866"]
 [ext_resource type="PackedScene" uid="uid://xw8mje78n3rw" path="res://Game/Assets/Scenes/Despawn/despawn.tscn" id="2_qtt3y"]
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="StaticBody2D" groups=["Bullet"]]
 script = ExtResource("1_gm866")
 
 [node name="Icon" type="Polygon2D" parent="."]
@@ -17,5 +17,3 @@ polygon = PackedVector2Array(0, -1, 0, 1, 3, 1, 4, 0, 3, -1)
 wait_time = 6.0
 MinTime = 1.0
 MaxTime = 2.0
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

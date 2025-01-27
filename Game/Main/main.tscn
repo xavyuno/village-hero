@@ -1,16 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4cdi0kabgcin"]
+[gd_scene load_steps=8 format=3 uid="uid://c4cdi0kabgcin"]
 
+[ext_resource type="PackedScene" uid="uid://bv0eg12eb5kak" path="res://Game/Assets/Interface/HUD/hud.tscn" id="1_8yr0u"]
 [ext_resource type="PackedScene" uid="uid://b88oryevus5rd" path="res://Game/Assets/Scenes/Player/player.tscn" id="1_vnf3y"]
-[ext_resource type="PackedScene" uid="uid://45dljis6sxbq" path="res://Game/Assets/Interface/Inventory/inventory.tscn" id="2_4fw1g"]
 [ext_resource type="PackedScene" uid="uid://dlc3pjmasn0uq" path="res://Game/Assets/Scenes/Item/item.tscn" id="3_pwajn"]
 [ext_resource type="Resource" uid="uid://bx6fup5ga87ig" path="res://Game/Systems/Weapons/Guns/Pistol.tres" id="4_a6yig"]
+[ext_resource type="Resource" uid="uid://8uy83aesc13c" path="res://Game/Systems/Items/Ammo.tres" id="4_tj5se"]
+[ext_resource type="Resource" uid="uid://b4jpa5d5miswe" path="res://Game/Systems/Amour/Knight.tres" id="5_vqnrn"]
+[ext_resource type="PackedScene" uid="uid://du0jjf6f5gusu" path="res://Game/Assets/Scenes/Enemy/enemy.tscn" id="6_358ou"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
-[node name="Inventory" parent="Interface" instance=ExtResource("2_4fw1g")]
-visible = false
+[node name="HUD" parent="Interface" instance=ExtResource("1_8yr0u")]
 
 [node name="World" type="Node2D" parent="."]
 
@@ -20,13 +22,22 @@ visible = false
 color = Color(0.319486, 0.859375, 0.124207, 1)
 polygon = PackedVector2Array(256, -160, 192, 32, 320, 160, 480, 96, 480, 0, 416, -96)
 
-[node name="Item" parent="World/Enviroment" instance=ExtResource("3_pwajn")]
+[node name="Medkit" parent="World/Enviroment" instance=ExtResource("3_pwajn")]
 position = Vector2(-320, 96)
 PreData = ExtResource("4_a6yig")
 
+[node name="Ammo" parent="World/Enviroment" instance=ExtResource("3_pwajn")]
+position = Vector2(-352, 192)
+PreData = ExtResource("4_tj5se")
+
+[node name="Amour" parent="World/Enviroment" instance=ExtResource("3_pwajn")]
+position = Vector2(-448, 192)
+PreData = ExtResource("5_vqnrn")
+
 [node name="Enemies" type="Node2D" parent="World"]
 
-[node name="Node2D4" type="Node2D" parent="World"]
+[node name="Enemy" parent="World/Enemies" instance=ExtResource("6_358ou")]
+position = Vector2(256, -288)
 
 [node name="Player" type="Node2D" parent="World"]
 

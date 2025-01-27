@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Amour" load_steps=3 format=3 uid="uid://b4jpa5d5miswe"]
+
+[ext_resource type="Script" path="res://Game/Systems/Amour/Main/AmourCore.gd" id="1_2r5am"]
+[ext_resource type="Texture2D" uid="uid://cfl38ri5m0wan" path="res://Game/Assets/Icons/Amour/Default/Kinght.png" id="1_kmvu8"]
+
+[resource]
+script = ExtResource("1_2r5am")
+Name = "Knight"
+Icon = ExtResource("1_kmvu8")
+Amount = 1
+Scale = 1
+Protection = 10
+Rarity = null

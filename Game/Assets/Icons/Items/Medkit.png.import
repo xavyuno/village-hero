@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://by1it7vhfe4b5"
-path="res://godot/imported/Sprite-0001.png-a4ff78d4885d27889dab68a8b96b8d9d.ctex"
+path="res://godot/imported/Medkit.png-8dfe5268be9dbb654512645c06dc299c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/Items/Sprite-0001.png"
-dest_files=["res://godot/imported/Sprite-0001.png-a4ff78d4885d27889dab68a8b96b8d9d.ctex"]
+source_file="res://Game/Assets/Icons/Items/Medkit.png"
+dest_files=["res://godot/imported/Medkit.png-8dfe5268be9dbb654512645c06dc299c.ctex"]
 
 [params]
 

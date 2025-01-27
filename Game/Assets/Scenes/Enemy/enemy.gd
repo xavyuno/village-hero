@@ -28,7 +28,7 @@ func HealthSystem():
 		queue_free()
 
 func FollowPlayer():
-	position += (User.PlayerPosition - position) / 40
+	position += (User.PlayerPosition - position) / 250
 	body_anim.play("Walking", 1, 150 / 150)
 
 func HeadFollow(delta):
@@ -49,3 +49,7 @@ func ArmsFollow(delta):
 	else :
 		arms.scale = lerp(arms.scale, Vector2(1, -1), Accel * delta)
 	arms.look_at(User.PlayerPosition)
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Bullet"):
+		Health -= body.GunData["Damage"]

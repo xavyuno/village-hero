@@ -11,11 +11,11 @@ var ItemData := {}
 func _ready() -> void:
 	ItemData = Inventory.Data[ItemName]
 	Icon.texture = ItemData["Icon"]
-	if !Inventory.Data[ItemName]["IsWeapon"]:
+	if !Inventory.Data[ItemName]["IsWeapon"] and !Inventory.Data[ItemName]["Type"] == "Amour":
 		AmountLabel.text = str(ItemData["Amount"])
 
 func ChangeWeapon():
-	Inventory.IsChangingWeapon = true
+	Inventory.IsChangingSlot = true
 	Inventory.ChangingData = ItemData
 
 func _on_pressed() -> void:

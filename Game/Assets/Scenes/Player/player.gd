@@ -36,3 +36,8 @@ func _physics_process(delta: float) -> void:
 	Sprint()
 	Movement(delta)
 	Anim()
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Bullet"):
+		User.DamageTaken(body.GunData["Damage"])

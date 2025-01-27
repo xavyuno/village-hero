@@ -8,4 +8,6 @@ script = ExtResource("1_451k8")
 Name = "SenKon"
 Damage = 6
 Icon = ExtResource("1_efnh8")
+Scale = 1.0
 AttackSpeed = 1.2
+Amount = 1

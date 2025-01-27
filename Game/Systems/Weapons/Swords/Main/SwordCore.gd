@@ -4,6 +4,7 @@ class_name Sword
 @export var Name := ""
 @export var Damage := 0
 @export var Icon : Texture
+@export var Scale := 1.0
 @export var AttackSpeed := 1.0
 @export var Amount := 1
 
@@ -12,6 +13,7 @@ func GetData():
 		"Name": Name,
 		"Damage": Damage,
 		"Icon": Icon,
+		"Scale": Scale,
 		"AttackSpeed": AttackSpeed,
 		"Type": "Sword",
 		"Amount": Amount,

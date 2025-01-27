@@ -35,8 +35,6 @@
 				"7dd79bc1-b2fb-4d47-a8ae-ca3dd97c82cd",
 				"f126997c-4a2a-4d18-9742-8b23a74c345f",
 				"088f6610-6944-47b8-aef3-10d5e17e1775",
-				"47e5cd08-2116-4d83-b98a-33d4adc288eb",
-				"45d5440f-773b-440e-93bc-16d3f6ce60c9",
 				"a617feb4-f9d9-4452-a632-fa2efac592a7"
 			]
 		},
@@ -44,7 +42,7 @@
 			"uuid": "b513057a-39be-433c-b617-569654d1abd0",
 			"title": "Doing",
 			"tasks": [
-				"105e0281-6927-4052-8a21-b29ce4205ce3"
+				"47e5cd08-2116-4d83-b98a-33d4adc288eb"
 			]
 		},
 		{
@@ -53,13 +51,16 @@
 			"tasks": [
 				"4b7f219e-a239-41de-8a34-80af7c748c42",
 				"2e60df61-703f-4903-922e-e8034b8e15fe",
-				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f"
+				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
+				"105e0281-6927-4052-8a21-b29ce4205ce3"
 			]
 		},
 		{
 			"uuid": "a90f7b88-de56-4785-81ab-140bffa3474a",
 			"title": "On Pause",
-			"tasks": []
+			"tasks": [
+				"45d5440f-773b-440e-93bc-16d3f6ce60c9"
+			]
 		}
 	],
 	"tasks": [
@@ -111,19 +112,15 @@
 				},
 				{
 					"details": "Amour Equip",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Amour Unequip",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Inventory size scale",
 					"done": true
-				},
-				{
-					"details": "Coin Pouch Scale",
-					"done": false
 				},
 				{
 					"details": "Equip Item",
@@ -131,11 +128,7 @@
 				},
 				{
 					"details": "Interface",
-					"done": false
-				},
-				{
-					"details": "Controller Support",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -151,10 +144,6 @@
 				},
 				{
 					"details": "Mine-able Ores",
-					"done": false
-				},
-				{
-					"details": "Controller Support",
 					"done": false
 				}
 			]
@@ -311,7 +300,7 @@
 			"steps": [
 				{
 					"details": "Exp",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Rewards",

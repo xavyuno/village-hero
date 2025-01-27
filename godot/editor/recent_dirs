@@ -1,3 +1,7 @@
+res://Game/Systems/Amour
+res://Game/Assets/Interface/GunHud
+res://Game/Systems/Items/Main
+res://Game/Assets/Interface/HUD
 res://Game/Assets/Interface/Inventory
 res://Game/Assets/Shaders
 res://Game/Assets/Scenes/Item

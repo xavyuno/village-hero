@@ -7,25 +7,30 @@ var SlotsUsed := 0
 
 var IsEquipped := false
 var EquippedItem := {}
-var WeaponSlot := 0
+var ItemSlot := 0
 var ChangedSlot := 1
 
-var PrimaryWeapon := {}
-var SecondaryWeapon := {}
-var Shield := {}
+var AmourEquipped := {}
+var AmourChanged := false
+
+var Slot1 := {}
+var Slot2 := {}
+var Slot3 := {}
+var Slot4 := {}
+var Slot5 := {}
 
 var RefreshInv := false
 
-var IsChangingWeapon := false
+var IsChangingSlot := false
 var ChangingData := {}
 
 func _ready() -> void:
-	AddWeapon(WeaponIndex.GetSword("SenKon"))
-	AddWeapon(WeaponIndex.GetGun("Rifle"))
+	AddItem(WeaponIndex.GetSword("SenKon"))
+	AddItem(WeaponIndex.GetGun("Rifle"))
 
 func UnEquip():
 	IsEquipped = false
-	WeaponSlot = 0
+	ItemSlot = 0
 	EquippedItem = {}
 
 func Equip(ItemName : String):
@@ -35,83 +40,138 @@ func Equip(ItemName : String):
 func _physics_process(delta: float) -> void:
 	IsEquipped = !EquippedItem.is_empty()
 	SlotsUsed = Data.size()
-	if Input.is_action_just_pressed("SwitchWeapon"):
-		match WeaponSlot:
-			1:
-				ChangedSlot = 2
-			2:
-				ChangedSlot = 1
-		SwitchWeapons(ChangedSlot)
 
-func SwitchWeapons(Slot: int):
+func AddAmmo(Amount = 0):
+	var Guns := []
+	var AmmoAmount : int = Amount
+	if Amount == 0:
+		AmmoAmount = randf_range(User.MinAmmo, User.MaxAmmo)
+	if EquippedItem.is_empty():
+		for i in Data:
+			if Data[i]["Type"] == "Gun":
+				Guns.append(i)
+		if Guns.size() >= 1:
+			if User.DivideAmmo:
+				var DividedAmount := AmmoAmount / Guns.size()
+				for i in Guns:
+					Data[i]["MagSize"] += DividedAmount
+			else :
+				Data[Guns[0]]["MagSize"] += AmmoAmount
+		else :
+			return 0
+	else :
+		Data[EquippedItem["Name"]]["MagSize"] += AmmoAmount
+
+func SwitchItems(Slot: int):
 	match Slot:
 		1:
-			if !PrimaryWeapon.is_empty():
-				if WeaponSlot == Slot:
+			if !Slot1.is_empty():
+				if ItemSlot == Slot:
 					EquippedItem = {}
-					WeaponSlot = 0
+					ItemSlot = 0
 				else :
-					WeaponSlot = Slot
-					EquippedItem = PrimaryWeapon
+					ItemSlot = Slot
+					EquippedItem = Slot1
 					IsEquipped = true
 			else :
-				WeaponSlot = 0
+				ItemSlot = 0
 				EquippedItem = {}
 		2:
-			if !SecondaryWeapon.is_empty():
-				if WeaponSlot == Slot:
+			if !Slot2.is_empty():
+				if ItemSlot == Slot:
 					EquippedItem = {}
-					WeaponSlot = 0
+					ItemSlot = 0
 				else :
-					WeaponSlot = Slot
-					EquippedItem = SecondaryWeapon
+					ItemSlot = Slot
+					EquippedItem = Slot2
 					IsEquipped = true
 			else :
-				WeaponSlot = 0
+				ItemSlot = 0
+				EquippedItem = {}
+		3:
+			if !Slot3.is_empty():
+				if ItemSlot == Slot:
+					EquippedItem = {}
+					ItemSlot = 0
+				else :
+					ItemSlot = Slot
+					EquippedItem = Slot3
+					IsEquipped = true
+			else :
+				ItemSlot = 0
+				EquippedItem = {}
+		4:
+			if !Slot4.is_empty():
+				if ItemSlot == Slot:
+					EquippedItem = {}
+					ItemSlot = 0
+				else :
+					ItemSlot = Slot
+					EquippedItem = Slot4
+					IsEquipped = true
+			else :
+				ItemSlot = 0
+				EquippedItem = {}
+		5:
+			if !Slot5.is_empty():
+				if ItemSlot == Slot:
+					EquippedItem = {}
+					ItemSlot = 0
+				else :
+					ItemSlot = Slot
+					EquippedItem = Slot5
+					IsEquipped = true
+			else :
+				ItemSlot = 0
 				EquippedItem = {}
 
-
-func AddWeapon(WeaponData: Dictionary, Amount = 1):
-	var UniqueIdentifier = WeaponData["Name"] + str(randi() % 100000)
-	WeaponData["Name"] = UniqueIdentifier
-	Data.merge({UniqueIdentifier: WeaponData}, true)
-	RefreshInv = true
-	if PrimaryWeapon.is_empty():
-		PrimaryWeapon = WeaponData
-		return
-	if SecondaryWeapon.is_empty():
-		SecondaryWeapon = WeaponData
-		return
-
-func AddItem(ItemName: String, Amount = 1):
-	var Details := {}
-	if Data.has(ItemName):
-		Data[ItemName]["Amount"] += Amount
+func AddItem(ItemData : Dictionary, Amount = 1):
+	var done = false
+	if ItemData["IsWeapon"] or ItemData["Type"] == "Amour":
+		var UniqueIdentifier = ItemData["Name"] + str(randi() % 100000)
+		ItemData["Name"] = UniqueIdentifier
+	if Data.has(ItemData["Name"]):
+		Data[ItemData["Name"]]["Amount"] += Amount
 	else :
-		Data.merge({ItemName: Details}, true)
-	RefreshInv = true
-
-func RemoveWeapon(ItemName: String):
-	var Details := {}
-	if Data.has(ItemName):
-		Details = Data[ItemName]
-		Data.erase(ItemName)
-		if PrimaryWeapon == Details:
-			PrimaryWeapon = {}
-		if SecondaryWeapon == Details:
-			SecondaryWeapon = {}
+		Data.merge({ItemData["Name"]: ItemData}, true)
+		if ItemData["Type"] == "Amour":
+			done = true
+		if Slot1.is_empty() and !done:
+			Slot1 = ItemData
+			done = true
+		if Slot2.is_empty() and !done:
+			Slot2 = ItemData
+			done = true
+		if Slot3.is_empty() and !done:
+			Slot3 = ItemData
+			done = true
+		if Slot4.is_empty() and !done:
+			Slot4 = ItemData
+			done = true
+		if Slot5.is_empty() and !done:
+			Slot5 = ItemData
+			done = true
 	RefreshInv = true
 
 func RemoveItem(ItemName: String, Amount = 1):
 	var Details := {}
 	if Data.has(ItemName):
 		Details = Data[ItemName]
-		Data[ItemName]["Amount"] -= Amount
-		if Data[ItemName]["Amount"] <= 0:
+		Details["Amount"] -= Amount
+		if Details["Amount"] <= 0:
+			if !Details["IsWeapon"]:
+				Data[ItemName]["Amount"] -= Amount
+			if Slot1 == Details:
+				Slot1 = {}
+			if Slot2 == Details:
+				Slot2 = {}
+			if Slot3 == Details:
+				Slot3 = {}
+			if Slot4 == Details:
+				Slot4 = {}
+			if Slot5 == Details:
+				Slot5 = {}
+				
 			Data.erase(ItemName)
-			if Details["IsWeapon"]:
-				if PrimaryWeapon == Details:
-					PrimaryWeapon = {}
-				if SecondaryWeapon == Details:
-					SecondaryWeapon = {}
-	RefreshInv = true
+		RefreshInv = true
+		return Details["Amount"]

@@ -1,6 +1,6 @@
-extends Area2D
+extends StaticBody2D
 
-var Speed = 300
+var Speed = 1000
 var GunData := {}
 
 func _ready() -> void:
@@ -8,7 +8,3 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += transform.x * Speed * delta
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Entity"):
-		body.get_parent().Health -= GunData["Damage"]

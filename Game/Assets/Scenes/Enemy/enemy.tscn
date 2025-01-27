@@ -832,7 +832,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_ggml4")
 BodyIcon = ExtResource("2_6kbhk")
 
-[node name="HitBox" type="StaticBody2D" parent="." groups=["Entity"]]
+[node name="HitBox" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0.5, 7.5)
@@ -973,3 +973,5 @@ offset_top = -48.0
 offset_right = 24.0
 offset_bottom = -25.0
 text = "HP:"
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b88oryevus5rd"]
+[gd_scene load_steps=32 format=3 uid="uid://b88oryevus5rd"]
 
 [ext_resource type="Script" path="res://Game/Assets/Scenes/Player/player.gd" id="1_idtnq"]
 [ext_resource type="Script" path="res://Game/Assets/Scenes/Player/camera.gd" id="2_fkw17"]
@@ -7,8 +7,10 @@
 [ext_resource type="Shader" path="res://Game/Assets/Shaders/Outline.gdshader" id="4_cdsr5"]
 [ext_resource type="Texture2D" uid="uid://ddcgi0eqait4s" path="res://Game/Assets/Icons/PlayerSkins/Default/Hitman.png" id="6_bdinx"]
 [ext_resource type="Script" path="res://Game/Assets/Scenes/Player/hand.gd" id="6_uocwl"]
+[ext_resource type="Texture2D" uid="uid://cfl38ri5m0wan" path="res://Game/Assets/Icons/Amour/Default/Kinght.png" id="6_x6xoo"]
 [ext_resource type="Texture2D" uid="uid://dum6b42w1cfdx" path="res://Game/Assets/Icons/Weapons/Swords/Sword.png" id="7_832e8"]
-[ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="8_7fd6b"]
+[ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="9_e581l"]
+[ext_resource type="Texture2D" uid="uid://by1it7vhfe4b5" path="res://Game/Assets/Icons/Items/Medkit.png" id="10_65qpd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bywat"]
 shader = ExtResource("4_cdsr5")
@@ -32,8 +34,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 gradient = SubResource("Gradient_x4ids")
 
 [sub_resource type="Curve" id="Curve_fn62g"]
-max_value = 2.0
-_data = [Vector2(0.0183486, 0.384615), 0.0, 0.0, 0, 0, Vector2(0.348624, 0.681319), -5.98901, -5.98901, 0, 0, Vector2(0.701835, 0.10989), -8.38463, 0.0, 0, 0]
+_data = [Vector2(0.0138249, 0.131868), 0.0, 0.0, 0, 0, Vector2(0.322581, 0.252747), -0.454212, -0.454212, 0, 0, Vector2(1, 0.043956), -1.06942, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_u8uag"]
@@ -41,7 +42,7 @@ offsets = PackedFloat32Array(0, 0.536842, 1)
 colors = PackedColorArray(0.347656, 0.347656, 0.347656, 1, 0.65625, 0.651123, 0.651123, 1, 1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh3hd"]
-size = Vector2(20, 69.1667)
+size = Vector2(20, 37.1667)
 
 [sub_resource type="Animation" id="Animation_u8fo6"]
 resource_name = "Idle"
@@ -392,7 +393,7 @@ _data = {
 [sub_resource type="Animation" id="Animation_tb30a"]
 resource_name = "Attack"
 length = 0.5
-step = 0.1
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -472,10 +473,10 @@ tracks/6/path = NodePath("Arms/RightArm/Hand/Sword/Slash:emitting")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.35),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -484,7 +485,7 @@ tracks/7/path = NodePath("Arms/RightArm/Hand/Sword/HitBox/Collision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.1, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
@@ -838,8 +839,11 @@ _data = {
 radius = 5.0
 height = 16.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7cj2"]
+radius = 5.0
+height = 54.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-y_sort_enabled = true
 scale = Vector2(2, 2)
 script = ExtResource("1_idtnq")
 
@@ -857,13 +861,20 @@ texture = ExtResource("2_frgoi")
 material = SubResource("ShaderMaterial_bywat")
 position = Vector2(0, -14.5)
 script = ExtResource("2_tl0fj")
-BodyIcon = ExtResource("6_bdinx")
+BodyIcon = ExtResource("6_x6xoo")
 
 [node name="Torso" type="Node2D" parent="Body"]
 use_parent_material = true
 position = Vector2(-2, -1.5)
 
 [node name="Torso" type="Sprite2D" parent="Body/Torso"]
+use_parent_material = true
+texture = ExtResource("6_bdinx")
+offset = Vector2(0, -0.3)
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 32)
+
+[node name="Torso2" type="Sprite2D" parent="Body/Torso"]
 use_parent_material = true
 texture = ExtResource("6_bdinx")
 offset = Vector2(0, -0.3)
@@ -882,11 +893,27 @@ offset = Vector2(-4, 0)
 region_enabled = true
 region_rect = Rect2(48.5, 0, 16, 32)
 
+[node name="RightLeg2" type="Sprite2D" parent="Body/RLeg"]
+use_parent_material = true
+position = Vector2(1, 0)
+texture = ExtResource("6_bdinx")
+offset = Vector2(-4, 0)
+region_enabled = true
+region_rect = Rect2(48.5, 0, 16, 32)
+
 [node name="LLeg" type="Node2D" parent="Body"]
 use_parent_material = true
 position = Vector2(1.5, 16)
 
 [node name="LeftLeg" type="Sprite2D" parent="Body/LLeg"]
+use_parent_material = true
+position = Vector2(1, 0)
+texture = ExtResource("6_bdinx")
+offset = Vector2(-4, 0)
+region_enabled = true
+region_rect = Rect2(48.5, 0, 16, 32)
+
+[node name="LeftLeg2" type="Sprite2D" parent="Body/LLeg"]
 use_parent_material = true
 position = Vector2(1, 0)
 texture = ExtResource("6_bdinx")
@@ -912,65 +939,98 @@ position = Vector2(1.5, 13)
 script = ExtResource("6_uocwl")
 metadata/_edit_group_ = true
 
-[node name="Sword" type="Sprite2D" parent="Body/Arms/RightArm/Hand"]
+[node name="Sword" type="TextureRect" parent="Body/Arms/RightArm/Hand"]
 visible = false
 use_parent_material = true
-position = Vector2(18, 2.5)
+offset_left = 35.5
+offset_top = -13.5
+offset_right = 67.5
+offset_bottom = 28.5
 rotation = 1.57079
-scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_832e8")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Slash" type="CPUParticles2D" parent="Body/Arms/RightArm/Hand/Sword"]
 self_modulate = Color(1, 1, 1, 0.392157)
 material = SubResource("CanvasItemMaterial_w1blw")
-position = Vector2(-14.9867, -24.5535)
+position = Vector2(12.0722, 4.55723)
 emitting = false
-amount = 100
-lifetime = 0.3
+amount = 150
+lifetime = 0.2
+speed_scale = 0.7
 explosiveness = 0.1
 randomness = 1.0
 lifetime_randomness = 1.0
 draw_order = 1
 texture = SubResource("GradientTexture2D_ib4e5")
 emission_shape = 3
-emission_rect_extents = Vector2(10, 5)
-direction = Vector2(10, 10)
-spread = 180.0
-gravity = Vector2(250, 10)
-angle_min = -720.0
-angle_max = 720.0
+emission_rect_extents = Vector2(2.5, 2.5)
+gravity = Vector2(10, 10)
+initial_velocity_max = 10.0
+angular_velocity_min = -10.0
+angular_velocity_max = 10.0
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+damping_max = 100.0
 scale_amount_min = 0.05
 scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_fn62g")
 color_ramp = SubResource("Gradient_u8uag")
-anim_speed_min = 1.0
-anim_speed_max = 10.0
 
 [node name="HitBox" type="Area2D" parent="Body/Arms/RightArm/Hand/Sword"]
+position = Vector2(16, 1.0001)
 
 [node name="Collision" type="CollisionShape2D" parent="Body/Arms/RightArm/Hand/Sword/HitBox"]
-position = Vector2(9.53674e-07, -2.91667)
+position = Vector2(9.53674e-07, 13.0833)
 shape = SubResource("RectangleShape2D_xh3hd")
 disabled = true
 
-[node name="Gun" type="Sprite2D" parent="Body/Arms/RightArm/Hand"]
+[node name="Gun" type="TextureRect" parent="Body/Arms/RightArm/Hand"]
 use_parent_material = true
-position = Vector2(2.5, -2)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("8_7fd6b")
+offset_left = -16.0
+offset_top = -18.5
+offset_right = 16.0
+offset_bottom = 13.5
+pivot_offset = Vector2(10.5, 20.285)
+texture = ExtResource("9_e581l")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Barrel" type="Marker2D" parent="Body/Arms/RightArm/Hand/Gun"]
-position = Vector2(23.3333, 3.33333)
+position = Vector2(26, 19)
 
-[node name="Item" type="Sprite2D" parent="Body/Arms/RightArm/Hand"]
+[node name="Item" type="TextureRect" parent="Body/Arms/RightArm/Hand"]
 visible = false
 use_parent_material = true
-position = Vector2(-4, 2)
+offset_left = -21.0
+offset_top = -5.0
+offset_right = 11.0
+offset_bottom = 11.0
 scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(14, 7)
+texture = ExtResource("10_65qpd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RightArm2" type="Sprite2D" parent="Body/Arms/RightArm"]
+use_parent_material = true
+texture = ExtResource("6_bdinx")
+offset = Vector2(-5, 2)
+region_enabled = true
+region_rect = Rect2(32.5, 0, 16, 32)
 
 [node name="LeftArm" type="Sprite2D" parent="Body/Arms"]
 use_parent_material = true
 position = Vector2(-8, 0)
+texture = ExtResource("6_bdinx")
+offset = Vector2(5, 2)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(32.5, 0, 16, 32)
+
+[node name="LeftArm2" type="Sprite2D" parent="Body/Arms/LeftArm"]
+use_parent_material = true
 texture = ExtResource("6_bdinx")
 offset = Vector2(5, 2)
 flip_h = true
@@ -983,10 +1043,17 @@ position = Vector2(0.5, -10)
 
 [node name="Head" type="Sprite2D" parent="Body/Head"]
 use_parent_material = true
-texture = ExtResource("6_bdinx")
+texture = ExtResource("6_x6xoo")
 offset = Vector2(-2, -16)
 region_enabled = true
-region_rect = Rect2(17, 0, 16, 32)
+region_rect = Rect2(16.74, 0, 16, 32)
+
+[node name="Head2" type="Sprite2D" parent="Body/Head"]
+use_parent_material = true
+texture = ExtResource("6_x6xoo")
+offset = Vector2(-2, -16)
+region_enabled = true
+region_rect = Rect2(16.74, 0, 16, 32)
 
 [node name="BodyAnim" type="AnimationPlayer" parent="Body"]
 root_node = NodePath("../..")
@@ -1012,5 +1079,12 @@ polygon = PackedVector2Array(-2.5, -1.5, -2.5, 2.5, 2.5, 3, 2.5, -2.5)
 position = Vector2(0.5, 9.5)
 shape = SubResource("CapsuleShape2D_ujt0t")
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0.5, -9.5)
+shape = SubResource("CapsuleShape2D_n7cj2")
+
 [connection signal="body_entered" from="Body/Arms/RightArm/Hand/Sword/HitBox" to="Body/Arms/RightArm/Hand" method="_on_hit_box_body_entered"]
 [connection signal="animation_finished" from="Body/HandAnim" to="Body/Arms/RightArm/Hand" method="_on_hand_anim_animation_finished"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

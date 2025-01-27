@@ -23,28 +23,26 @@ func _ready() -> void:
 	if PreData != null:
 		ItemData = PreData.GetData()
 	icon.texture = ItemData["Icon"]
-	if ItemData["Type"] == "Gun":
+	if ItemData["Type"] == "Gun" or ItemData["Type"] == "Item" or ItemData["Type"] == "Amour":
 		sword_shadow.visible = false
 	if ItemData["Type"] == "Sword":
 		gun_shadow.visible = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and Inventory.SlotsUsed < Inventory.MaxSlots:
-		match ItemData["Type"]:
-			"Gun":
-				Inventory.AddWeapon(ItemData)
+		if ItemData["Type"] == "Item" or ItemData["Type"] == "Amour":
+			if !ItemData["Name"] == "Ammo":
+				Inventory.AddItem(ItemData)
 				queue_free()
-			"Sword":
-				Inventory.AddWeapon(ItemData)
-				queue_free()
-			"Item":
-				Inventory.AddItem(ItemData["Name"])
-				queue_free()
-
+			else :
+				if !Inventory.AddAmmo(ItemData["SetAmmo"]) == 0:
+					queue_free()
+		else :
+			Inventory.AddItem(ItemData)
+			queue_free()
 
 func _on_timer_timeout() -> void:
 	$Collision.disabled = false
-
 
 func _on_radius_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

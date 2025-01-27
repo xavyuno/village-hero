@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfl38ri5m0wan"
-path="res://godot/imported/Kinght.png-cfbd91d52a92196121e660f43b457821.ctex"
+uid="uid://b13jpqx1l2s2b"
+path="res://godot/imported/Smallpistol.png-69ed8e8c6fb4890f032ec88ef9c31bb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Game/Assets/Icons/PlayerSkins/Default/Kinght.png"
-dest_files=["res://godot/imported/Kinght.png-cfbd91d52a92196121e660f43b457821.ctex"]
+source_file="res://Game/Assets/Icons/Weapons/Guns/Smallpistol.png"
+dest_files=["res://godot/imported/Smallpistol.png-69ed8e8c6fb4890f032ec88ef9c31bb9.ctex"]
 
 [params]
 

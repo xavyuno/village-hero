@@ -5,3 +5,6 @@ func GetSword(Name: String):
 
 func GetGun(Name: String):
 	return load("res://Game/Systems/Weapons/Guns/" + Name + ".tres").GetData()
+
+func GetItem(Name: String):
+	return load("res://Game/Systems/Items/" + Name + ".tres").GetData()
