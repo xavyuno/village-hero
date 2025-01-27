@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Aim"):
 		DynamicCam(delta)
 	else:
-		position = lerp(position, Vector2.ZERO, 5 * delta)
+		position = lerp(position, Vector2(0, -10), 5 * delta)
 
 func DynamicCam(delta):
 	var CustomPos = position

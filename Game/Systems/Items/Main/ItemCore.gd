@@ -12,5 +12,6 @@ func GetData():
 		"Icon": Icon,
 		"Type": "Gun",
 		"Amount": Amount,
-		"IsWeapon": false
+		"IsWeapon": false,
+		"IsShield": false
 	}

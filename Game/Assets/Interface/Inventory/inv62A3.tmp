@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/inventory.gd" id="1_b8ceb"]
 [ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/inventory_holder.gd" id="2_tpgqy"]
 [ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/character.gd" id="3_plvuy"]
-[ext_resource type="PackedScene" uid="uid://cvpm61rrxoyah" path="res://Game/Assets/Interface/Inventory/weapon_slot.tscn" id="4_asnt8"]
+[ext_resource type="PackedScene" uid="uid://brqodjwegpavr" path="res://Game/Assets/Interface/Inventory/slot.tscn" id="4_gumkn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60fam"]
 content_margin_left = 10.0
@@ -77,13 +77,20 @@ offset_top = 32.0
 offset_right = 224.0
 offset_bottom = 96.0
 
-[node name="Primary" parent="Holder/Character/WeaponHolder" instance=ExtResource("4_asnt8")]
+[node name="PrimaryWeapon" parent="Holder/Character/WeaponHolder" instance=ExtResource("4_gumkn")]
+custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
-SlotType = "Primary"
+Type = "Primary"
 
-[node name="Secondary" parent="Holder/Character/WeaponHolder" instance=ExtResource("4_asnt8")]
+[node name="SecondaryWeapon" parent="Holder/Character/WeaponHolder" instance=ExtResource("4_gumkn")]
+custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
-SlotType = "Secondary"
+Type = "Secondary"
+
+[node name="Shield" parent="Holder/Character/WeaponHolder" instance=ExtResource("4_gumkn")]
+custom_minimum_size = Vector2(60, 40)
+layout_mode = 2
+Type = "Shield"
 
 [node name="SpecialAbility" type="Button" parent="Holder/Character"]
 layout_mode = 2
@@ -109,3 +116,6 @@ offset_right = 160.0
 offset_bottom = 96.0
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="mouse_entered" from="Holder/Character/WeaponHolder/PrimaryWeapon" to="Holder/Character/WeaponHolder/PrimaryWeapon" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Holder/Character/WeaponHolder/PrimaryWeapon" to="Holder/Character/WeaponHolder/PrimaryWeapon" method="_on_mouse_exited"]

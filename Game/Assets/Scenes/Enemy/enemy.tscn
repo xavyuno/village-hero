@@ -827,6 +827,7 @@ _data = {
 }
 
 [node name="Enemy" type="Node2D"]
+y_sort_enabled = true
 scale = Vector2(2, 2)
 script = ExtResource("1_ggml4")
 BodyIcon = ExtResource("2_6kbhk")

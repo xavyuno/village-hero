@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvpm61rrxoyah"]
+
+[ext_resource type="Shader" path="res://Game/Assets/Shaders/Outline.gdshader" id="1_holjf"]
+[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/weapon_slot.gd" id="1_s51hy"]
+[ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="2_ijuhp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djhb0"]
+shader = ExtResource("1_holjf")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/thickness = 0.5
+shader_parameter/tolerance = 0.0
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+
+[sub_resource type="Gradient" id="Gradient_yuuh0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.21875, 1, 0, 0.196078)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_63rjg"]
+gradient = SubResource("Gradient_yuuh0")
+
+[node name="WeaponSlot" type="Button"]
+custom_minimum_size = Vector2(60, 60)
+script = ExtResource("1_s51hy")
+
+[node name="Highlight" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_djhb0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_63rjg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Icon" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_djhb0")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ijuhp")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

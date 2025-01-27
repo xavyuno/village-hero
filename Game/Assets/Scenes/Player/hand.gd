@@ -39,6 +39,14 @@ func Drop():
 	var DroppedItem = preload("res://Game/Assets/Scenes/Item/item.tscn").instantiate()
 	DroppedItem.ItemData = Inventory.EquippedItem
 	DroppedItem.global_position = global_position
+	DroppedItem.Move = true
+	randomize()
+	var MinMove := 100
+	var MaxMove := 250
+	DroppedItem.MoveToPos = Vector2(
+		global_position.x + clamp(randf_range(-MaxMove, MaxMove), -MinMove, MinMove)
+		,global_position.y + clamp(randf_range(-MaxMove, MaxMove), -MinMove, MinMove)
+	)
 	get_tree().current_scene.get_node("World/Enviroment").add_child(DroppedItem)
 	Inventory.RemoveWeapon(Inventory.EquippedItem["Name"])
 	Inventory.UnEquip()

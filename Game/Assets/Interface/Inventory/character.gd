@@ -1,7 +1,8 @@
 extends Control
 
-@onready var primary_weapon: Button = $WeaponHolder/PrimaryWeapon
-@onready var secondary_weapon: Button = $WeaponHolder/SecondaryWeapon
-@onready var shield: Button = $WeaponHolder/Shield
-@onready var special_ability: Button = $SpecialAbility
-@onready var amour: Button = $Amour
+func _ready() -> void:
+	RefreshAll()
+
+func RefreshAll():
+	for i in $WeaponHolder.get_children():
+		i.Refresh()

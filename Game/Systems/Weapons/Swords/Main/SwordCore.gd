@@ -15,5 +15,6 @@ func GetData():
 		"AttackSpeed": AttackSpeed,
 		"Type": "Sword",
 		"Amount": Amount,
-		"IsWeapon": true
+		"IsWeapon": true,
+		"IsShield": false
 	}

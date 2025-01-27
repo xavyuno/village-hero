@@ -27,5 +27,6 @@ func GetData():
 		"MaxPhases": MaxPhases,
 		"Amount": Amount,
 		"IsWeapon": true,
-		"Rarity": Rarity
+		"Rarity": Rarity,
+		"IsShield": false
 	}

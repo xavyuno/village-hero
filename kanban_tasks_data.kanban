@@ -44,7 +44,6 @@
 			"uuid": "b513057a-39be-433c-b617-569654d1abd0",
 			"title": "Doing",
 			"tasks": [
-				"2e60df61-703f-4903-922e-e8034b8e15fe",
 				"105e0281-6927-4052-8a21-b29ce4205ce3"
 			]
 		},
@@ -52,15 +51,15 @@
 			"uuid": "9052991e-d703-4637-a1b1-56706c5a0aa2",
 			"title": "Done",
 			"tasks": [
-				"4b7f219e-a239-41de-8a34-80af7c748c42"
+				"4b7f219e-a239-41de-8a34-80af7c748c42",
+				"2e60df61-703f-4903-922e-e8034b8e15fe",
+				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f"
 			]
 		},
 		{
 			"uuid": "a90f7b88-de56-4785-81ab-140bffa3474a",
 			"title": "On Pause",
-			"tasks": [
-				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f"
-			]
+			"tasks": []
 		}
 	],
 	"tasks": [
@@ -141,30 +140,6 @@
 			]
 		},
 		{
-			"uuid": "b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
-			"title": "Combat",
-			"description": "",
-			"category": "c1c725fe-3d82-4c96-883b-a9144e6ccbbc",
-			"steps": [
-				{
-					"details": "Melee",
-					"done": true
-				},
-				{
-					"details": "Range",
-					"done": true
-				},
-				{
-					"details": "Controller support",
-					"done": true
-				},
-				{
-					"details": "Shield",
-					"done": false
-				}
-			]
-		},
-		{
 			"uuid": "54acd7bc-1bb1-4368-978d-2c24bc9b7919",
 			"title": "Mining",
 			"description": "",
@@ -200,15 +175,15 @@
 				},
 				{
 					"details": "Controller Support",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Mobile Support",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Go to player if in raidus",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Rarity",
@@ -381,6 +356,26 @@
 				{
 					"details": "UGC Items",
 					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
+			"title": "Combat",
+			"description": "",
+			"category": "c1c725fe-3d82-4c96-883b-a9144e6ccbbc",
+			"steps": [
+				{
+					"details": "Melee",
+					"done": true
+				},
+				{
+					"details": "Range",
+					"done": true
+				},
+				{
+					"details": "Controller support",
+					"done": true
 				}
 			]
 		}

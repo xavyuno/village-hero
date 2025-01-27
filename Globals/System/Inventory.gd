@@ -7,12 +7,17 @@ var SlotsUsed := 0
 
 var IsEquipped := false
 var EquippedItem := {}
-var WeaponSlot := 1
+var WeaponSlot := 0
+var ChangedSlot := 1
 
 var PrimaryWeapon := {}
 var SecondaryWeapon := {}
+var Shield := {}
 
 var RefreshInv := false
+
+var IsChangingWeapon := false
+var ChangingData := {}
 
 func _ready() -> void:
 	AddWeapon(WeaponIndex.GetSword("SenKon"))
@@ -20,6 +25,7 @@ func _ready() -> void:
 
 func UnEquip():
 	IsEquipped = false
+	WeaponSlot = 0
 	EquippedItem = {}
 
 func Equip(ItemName : String):
@@ -32,30 +38,36 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("SwitchWeapon"):
 		match WeaponSlot:
 			1:
-				WeaponSlot = 2
+				ChangedSlot = 2
 			2:
-				WeaponSlot = 1
-		SwitchWeapons(WeaponSlot)
+				ChangedSlot = 1
+		SwitchWeapons(ChangedSlot)
 
 func SwitchWeapons(Slot: int):
 	match Slot:
 		1:
 			if !PrimaryWeapon.is_empty():
-				if EquippedItem == PrimaryWeapon:
+				if WeaponSlot == Slot:
 					EquippedItem = {}
+					WeaponSlot = 0
 				else :
+					WeaponSlot = Slot
 					EquippedItem = PrimaryWeapon
 					IsEquipped = true
 			else :
+				WeaponSlot = 0
 				EquippedItem = {}
 		2:
 			if !SecondaryWeapon.is_empty():
-				if EquippedItem == SecondaryWeapon:
+				if WeaponSlot == Slot:
 					EquippedItem = {}
+					WeaponSlot = 0
 				else :
+					WeaponSlot = Slot
 					EquippedItem = SecondaryWeapon
 					IsEquipped = true
 			else :
+				WeaponSlot = 0
 				EquippedItem = {}
 
 
@@ -71,11 +83,12 @@ func AddWeapon(WeaponData: Dictionary, Amount = 1):
 		SecondaryWeapon = WeaponData
 		return
 
-func AddItem(ItemName: String, Amount = 1, Details := {}):
+func AddItem(ItemName: String, Amount = 1):
+	var Details := {}
 	if Data.has(ItemName):
 		Data[ItemName]["Amount"] += Amount
 	else :
-		Data.merge({ItemName: {"Amount": Amount, "Type": "Item", "IsWeapon": false}}, true)
+		Data.merge({ItemName: Details}, true)
 	RefreshInv = true
 
 func RemoveWeapon(ItemName: String):

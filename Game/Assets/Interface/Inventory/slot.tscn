@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://brqodjwegpavr"]
+[gd_scene load_steps=7 format=3 uid="uid://brqodjwegpavr"]
 
 [ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/slot.gd" id="1_pt2s5"]
 [ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="2_hokfn"]
+[ext_resource type="Shader" path="res://Game/Assets/Shaders/Outline.gdshader" id="2_mneww"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djhb0"]
+shader = ExtResource("2_mneww")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/thickness = 0.5
+shader_parameter/tolerance = 0.0
+shader_parameter/diagonals = true
+shader_parameter/rounded = true
+
+[sub_resource type="Gradient" id="Gradient_knvk1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nmge6"]
+gradient = SubResource("Gradient_knvk1")
 
 [node name="Slot" type="Button"]
 custom_minimum_size = Vector2(90, 90)
@@ -17,6 +33,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Icon" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_djhb0")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,4 +48,20 @@ texture = ExtResource("2_hokfn")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="HoldDownTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Progress" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 90.0
+max_value = 0.5
+step = 0.001
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = SubResource("GradientTexture2D_nmge6")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="HoldDownTimer" to="." method="_on_hold_down_timer_timeout"]

@@ -839,20 +839,23 @@ radius = 5.0
 height = 16.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+y_sort_enabled = true
 scale = Vector2(2, 2)
 script = ExtResource("1_idtnq")
 
 [node name="Camera" type="Camera2D" parent="."]
+position = Vector2(0, -10)
 limit_smoothed = true
 script = ExtResource("2_fkw17")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.392157)
-position = Vector2(0, 25.5)
+position = Vector2(0, 11)
 texture = ExtResource("2_frgoi")
 
 [node name="Body" type="Node2D" parent="."]
 material = SubResource("ShaderMaterial_bywat")
+position = Vector2(0, -14.5)
 script = ExtResource("2_tl0fj")
 BodyIcon = ExtResource("6_bdinx")
 
@@ -912,9 +915,9 @@ metadata/_edit_group_ = true
 [node name="Sword" type="Sprite2D" parent="Body/Arms/RightArm/Hand"]
 visible = false
 use_parent_material = true
-position = Vector2(11.5, 2.5)
+position = Vector2(18, 2.5)
 rotation = 1.57079
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("7_832e8")
 
 [node name="Slash" type="CPUParticles2D" parent="Body/Arms/RightArm/Hand/Sword"]
@@ -952,8 +955,8 @@ disabled = true
 
 [node name="Gun" type="Sprite2D" parent="Body/Arms/RightArm/Hand"]
 use_parent_material = true
-position = Vector2(0.5, -0.5)
-scale = Vector2(0.6, 0.6)
+position = Vector2(2.5, -2)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("8_7fd6b")
 
 [node name="Barrel" type="Marker2D" parent="Body/Arms/RightArm/Hand/Gun"]
@@ -963,7 +966,7 @@ position = Vector2(23.3333, 3.33333)
 visible = false
 use_parent_material = true
 position = Vector2(-4, 2)
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.8, 0.8)
 
 [node name="LeftArm" type="Sprite2D" parent="Body/Arms"]
 use_parent_material = true
@@ -1006,7 +1009,7 @@ color = Color(0.125, 1, 0, 1)
 polygon = PackedVector2Array(-2.5, -1.5, -2.5, 2.5, 2.5, 3, 2.5, -2.5)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 24)
+position = Vector2(0.5, 9.5)
 shape = SubResource("CapsuleShape2D_ujt0t")
 
 [connection signal="body_entered" from="Body/Arms/RightArm/Hand/Sword/HitBox" to="Body/Arms/RightArm/Hand" method="_on_hit_box_body_entered"]
