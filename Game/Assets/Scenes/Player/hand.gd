@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		sword.visible = false
 		gun.visible = false
 		item.visible = false
-		HandAnim.play("RESET")
+		HandAnim.play("Hand/RESET")
 
 func Shoot(GunData : Dictionary):
 	if Inventory.EquippedItem["CurrentMag"] >= 1 and !Reloading:
@@ -59,11 +59,10 @@ func Shoot(GunData : Dictionary):
 		
 		Inventory.EquippedItem["CurrentMag"] -= 1
 	else :
-		if !Reloading:
-			Reload()
+		if HandAnim.current_animation != "Hand/Reload":
+			HandAnim.play("Hand/Reload")
 
 func Reload():
-	Reloading = true
 	if Inventory.EquippedItem["MagSize"] >= 1 and Inventory.EquippedItem["CurrentMag"] < Inventory.EquippedItem["MaxMag"]:
 		if Inventory.EquippedItem["MagSize"] >= Inventory.EquippedItem["MaxMag"]:
 			var AmmoAdd : int = Inventory.EquippedItem["MaxMag"] - Inventory.EquippedItem["CurrentMag"]
@@ -122,7 +121,7 @@ func Equipped():
 		item.visible = true
 		item.scale = Vector2(Inventory.EquippedItem["Scale"], Inventory.EquippedItem["Scale"])
 		item.texture = Inventory.EquippedItem["Icon"]
-		HandAnim.play("HoldItem")
+		HandAnim.play("Hand/Attack")
 		if Input.is_action_just_pressed("Attack"):
 			ItemUsage.call(Inventory.EquippedItem["Name"])
 			if Inventory.RemoveItem(Inventory.EquippedItem["Name"]) <= 0:
@@ -135,9 +134,9 @@ func Equipped():
 		sword.scale = Vector2(Inventory.EquippedItem["Scale"], Inventory.EquippedItem["Scale"])
 		sword.texture = Inventory.EquippedItem["Icon"]
 		if Input.is_action_pressed("Attack"):
-			HandAnim.play("Attack", -1, Inventory.EquippedItem["AttackSpeed"])
+			HandAnim.play("Hand/Attack", -1, Inventory.EquippedItem["AttackSpeed"])
 		else :
-			HandAnim.play("HoldSword")
+			HandAnim.play("Hand/HoldSword")
 
 	elif Inventory.EquippedItem["Type"] == "Gun":
 		sword.visible = false
@@ -146,19 +145,14 @@ func Equipped():
 		gun.scale = Vector2(Inventory.EquippedItem["Scale"], Inventory.EquippedItem["Scale"])
 		gun.texture = Inventory.EquippedItem["Icon"]
 		if Input.is_action_pressed("Attack"):
-			HandAnim.play("Shoot", -1, Inventory.EquippedItem["AttackSpeed"])
+			HandAnim.play("Hand/Shoot", -1, Inventory.EquippedItem["AttackSpeed"])
 		else :
-			HandAnim.play("HoldGun")
+			HandAnim.play("Hand/HoldGun")
 
 	else :
 		print("No Identifier for the current equipped item")
 
 
 func _on_hand_anim_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "Shoot":
+	if anim_name == "Hand/Shoot":
 		Shoot(Inventory.EquippedItem)
-
-
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Entity"):
-		body.get_parent().Health -= Inventory.EquippedItem["Damage"]

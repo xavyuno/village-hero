@@ -1,55 +1,106 @@
-extends Node2D
+extends CharacterBody2D
+
+@onready var BodyAnim: AnimationPlayer = $Body/BodyAnim
+@onready var HandAnim: AnimationPlayer = $Body/HandAnim
+@onready var health: Label = $Health
+@onready var ai_timer: Timer = $AITimer
+
+@export var BodyIcon : Texture
+@export var Slot1 : Sword
+@export var Slot2 : Gun
+@export var AmourData : Amour
+
+@export var DifficultyRate := 1.0
+@export_enum("Easy", "Medium", "Hard", "Hard+") var AI
 
 var Accel := 8.5
 
-@export var BodyIcon : Texture
-@onready var body_anim: AnimationPlayer = $Body/BodyAnim
-@onready var hand_anim: AnimationPlayer = $Body/HandAnim
-
-@onready var torso: Sprite2D = $Body/Torso/Torso
-@onready var right_leg: Sprite2D = $Body/RLeg/RightLeg
-@onready var left_leg: Sprite2D = $Body/LLeg/LeftLeg
-@onready var right_arm: Sprite2D = $Body/Arms/RightArm
-@onready var left_arm: Sprite2D = $Body/Arms/LeftArm
-@onready var head: Sprite2D = $Body/Head/Head
-@onready var arms: Node2D = $Body/Arms
-@onready var NODES = []
+var Speed := 150.0
+var NormalSpeed := 150.0
+var SprintSpeed := 200.0
 
 var Health := 100
+var Protection := 0
+
+var InRange := false
+var FollowingPlayer := false
+var Sprinting := false
+
+var State := ""
+var Decision := ""
+
+var CustomPos : Vector2
 
 func _ready() -> void:
-	NODES = [torso, head, right_arm, left_arm, right_leg, left_leg]
-	for i in NODES:
-			i.texture = BodyIcon
+	randomize()
+	CustomPos = Vector2(randf_range(global_position.x - 150, global_position.x + 150),
+	randf_range(global_position.y - 150, global_position.y + 150))
+	ai_timer.wait_time = randf_range(10, 25)
+	ai_timer.start()
+
+func AISystem():
+	if InRange:
+		if Slot2["MagSize"] <= 0 and Slot2["CurrentMag"] <= 0:
+			FollowingPlayer = true
+		else :
+			FollowingPlayer = false
+	else :
+		FollowingPlayer = false
+
+func GetInputVel():
+	var motion := Vector2.ZERO
+	if InRange and global_position.distance_to(User.PlayerPosition) <= 1050:
+		motion += (global_position - User.PlayerPosition)
+	if global_position.distance_to(CustomPos) > 1.5:
+		motion += (CustomPos - global_position)
+	return motion.normalized() * Speed
+
+func Sprint():
+	if Sprinting:
+		Speed = SprintSpeed
+	else :
+		Speed = NormalSpeed
+
+func Anim():
+	if velocity > Vector2(1, 1) or velocity < Vector2(-1, -1):
+		BodyAnim.play("Walking", 1, Speed / NormalSpeed)
+	else :
+		BodyAnim.play("Idle", 1)
+
+func Movement(delta: float):
+	velocity.x = lerp(velocity.x, GetInputVel().x, delta * Accel)
+	velocity.y = lerp(velocity.y, GetInputVel().y, delta * Accel)
+	move_and_slide()
 
 func HealthSystem():
-	$Health.text = str(Health)
+	health.text = "Hp: " + str(Health)
 	if Health <= 0:
 		queue_free()
 
-func FollowPlayer():
-	position += (User.PlayerPosition - position) / 250
-	body_anim.play("Walking", 1, 150 / 150)
-
-func HeadFollow(delta):
-	if User.PlayerPosition.x >= global_position.x:
-		head.scale = lerp(head.scale, Vector2(1, 1), Accel * delta)
-	else :
-		head.scale = lerp(head.scale, Vector2(1, -1), Accel * delta)
-	head.look_at(User.PlayerPosition)
-
 func _physics_process(delta: float) -> void:
-	HeadFollow(delta)
+	AISystem()
 	HealthSystem()
-	FollowPlayer()
-
-func ArmsFollow(delta):
-	if User.PlayerPosition.x >= global_position.x:
-		arms.scale = lerp(arms.scale, Vector2(1, 1), Accel * delta)
-	else :
-		arms.scale = lerp(arms.scale, Vector2(1, -1), Accel * delta)
-	arms.look_at(User.PlayerPosition)
+	Sprint()
+	Movement(delta)
+	Anim()
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Bullet"):
-		Health -= body.GunData["Damage"]
+		Health -= clamp(body.GunData["Damage"] - Protection, 0, 1000000000000000000000000000000000000000000)
+	if body.is_in_group("Sword"):
+		Health -= clamp(Inventory.EquippedItem["Damage"] - Protection, 0, 100000000000000000000000000000000)
+
+func _on_radius_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		InRange = false
+
+func _on_radius_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		InRange = false
+
+func _on_ai_timer_timeout() -> void:
+	randomize()
+	ai_timer.wait_time = randf_range(10, 25)
+	ai_timer.start()
+	CustomPos = Vector2(randf_range(global_position.x - 150, global_position.x + 150),
+	randf_range(global_position.y - 150, global_position.y + 150))

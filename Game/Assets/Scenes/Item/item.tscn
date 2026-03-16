@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Game/Assets/Scenes/Item/item.gd" id="1_2mvix"]
 [ext_resource type="Shader" path="res://Game/Assets/Shaders/Outline.gdshader" id="3_kgj58"]
-[ext_resource type="Texture2D" uid="uid://by1it7vhfe4b5" path="res://Game/Assets/Icons/Items/Medkit.png" id="3_rxvcf"]
+[ext_resource type="Texture2D" uid="uid://cfl38ri5m0wan" path="res://Game/Assets/Icons/Amour/Default/Kinght.png" id="3_piofc"]
 [ext_resource type="Texture2D" uid="uid://dilvh3vjqywkk" path="res://Game/Assets/Icons/Shadow/Shadow.png" id="4_cpx7r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vrcuk"]
@@ -36,7 +36,7 @@ offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 pivot_offset = Vector2(16, 16)
-texture = ExtResource("3_rxvcf")
+texture = ExtResource("3_piofc")
 expand_mode = 1
 stretch_mode = 5
 

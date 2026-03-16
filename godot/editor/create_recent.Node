@@ -1,14 +1,14 @@
+StaticBody2D
+Timer
+CharacterBody2D
 Label
 Area2D
-StaticBody2D
 Control
 TextureRect
 CollisionShape2D
 TextureProgressBar
-Timer
 Node2D
 HBoxContainer
 Panel
 AnimationPlayer
 Polygon2D
-Marker2D

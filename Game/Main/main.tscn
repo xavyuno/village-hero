@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://bx6fup5ga87ig" path="res://Game/Systems/Weapons/Guns/Pistol.tres" id="4_a6yig"]
 [ext_resource type="Resource" uid="uid://8uy83aesc13c" path="res://Game/Systems/Items/Ammo.tres" id="4_tj5se"]
 [ext_resource type="Resource" uid="uid://b4jpa5d5miswe" path="res://Game/Systems/Amour/Knight.tres" id="5_vqnrn"]
-[ext_resource type="PackedScene" uid="uid://du0jjf6f5gusu" path="res://Game/Assets/Scenes/Enemy/enemy.tscn" id="6_358ou"]
+[ext_resource type="PackedScene" uid="uid://du0jjf6f5gusu" path="res://Game/Assets/Scenes/Enemy/enemy.tscn" id="6_oxsf2"]
 
 [node name="Main" type="Node2D"]
 
@@ -36,8 +36,10 @@ PreData = ExtResource("5_vqnrn")
 
 [node name="Enemies" type="Node2D" parent="World"]
 
-[node name="Enemy" parent="World/Enemies" instance=ExtResource("6_358ou")]
-position = Vector2(256, -288)
+[node name="Enemy" parent="World/Enemies" instance=ExtResource("6_oxsf2")]
+position = Vector2(416, -192)
+AmourData = ExtResource("5_vqnrn")
+AI = 0
 
 [node name="Player" type="Node2D" parent="World"]
 

@@ -29,4 +29,4 @@ func LevelUp():
 		Level += 1
 
 func DamageTaken(Amount: int):
-	Health -= Amount - Protection
+	Health -= clamp(Amount - Protection, 0, 10000000000000000000000000000000000000)

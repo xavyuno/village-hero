@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://xw8mje78n3rw" path="res://Game/Assets/Scenes/Despawn/despawn.tscn" id="2_qtt3y"]
 
 [node name="Bullet" type="StaticBody2D" groups=["Bullet"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_gm866")
 
 [node name="Icon" type="Polygon2D" parent="."]

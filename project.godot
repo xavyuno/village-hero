@@ -67,6 +67,7 @@ folder_colors={
 Entity=""
 Player=""
 Bullet=""
+Sword=""
 
 [importer_defaults]
 
