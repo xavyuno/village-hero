@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvpm61rrxoyah"]
 
-[ext_resource type="Shader" path="res://Game/Assets/Shaders/Outline.gdshader" id="1_holjf"]
-[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/weapon_slot.gd" id="1_s51hy"]
+[ext_resource type="Shader" uid="uid://ck2om4xm0oh8l" path="res://Game/Assets/Shaders/Outline.gdshader" id="1_holjf"]
+[ext_resource type="Script" uid="uid://p8xsvhrmgvhv" path="res://Game/Assets/Interface/Inventory/weapon_slot.gd" id="1_s51hy"]
 [ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="2_ijuhp"]
 [ext_resource type="Texture2D" uid="uid://cy7tojaripiuh" path="res://Game/Assets/Icons/PlaceHolder/FillWhite.png" id="2_nxhop"]
 

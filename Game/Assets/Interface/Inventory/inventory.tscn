@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://45dljis6sxbq"]
 
-[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/inventory.gd" id="1_b8ceb"]
-[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/inventory_holder.gd" id="2_tpgqy"]
-[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/character.gd" id="3_plvuy"]
-[ext_resource type="Script" path="res://Game/Assets/Interface/Inventory/amour.gd" id="4_jmov2"]
+[ext_resource type="Script" uid="uid://bd4mvlurjw7v0" path="res://Game/Assets/Interface/Inventory/inventory.gd" id="1_b8ceb"]
+[ext_resource type="Script" uid="uid://cq40of8vvtxqx" path="res://Game/Assets/Interface/Inventory/inventory_holder.gd" id="2_tpgqy"]
+[ext_resource type="Script" uid="uid://c6cfsj40mu5a3" path="res://Game/Assets/Interface/Inventory/character.gd" id="3_plvuy"]
+[ext_resource type="Script" uid="uid://dr6ishik50l6x" path="res://Game/Assets/Interface/Inventory/amour.gd" id="4_jmov2"]
 [ext_resource type="Texture2D" uid="uid://cy7tojaripiuh" path="res://Game/Assets/Icons/PlaceHolder/FillWhite.png" id="5_7qpxc"]
-[ext_resource type="Shader" path="res://Game/Assets/Shaders/Outline.gdshader" id="6_rrvay"]
+[ext_resource type="Shader" uid="uid://ck2om4xm0oh8l" path="res://Game/Assets/Shaders/Outline.gdshader" id="6_rrvay"]
 [ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="7_8t8yt"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60fam"]

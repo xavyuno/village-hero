@@ -21,8 +21,9 @@ extends Node2D
 var BodyNodes = []
 var AmourNodes = []
 var Accel := 8.5
+var ReactionAccel := 8.5
 
-var CustomPos : Vector2
+var LookPos : Vector2
 
 func _ready() -> void:
 	RefreshCharacter()
@@ -42,16 +43,20 @@ func RefreshCharacter():
 			i.texture = null
 
 func HeadFollow(delta):
-	if User.PlayerPosition.x >= global_position.x:
-		head.scale = lerp(head.scale, Vector2(1, 1), Accel * delta)
+	if Main.InRange:
+		if User.PlayerPosition.x >= global_position.x:
+			head.scale = lerp(head.scale, Vector2(1, 1), Accel * delta)
+			head_2.scale = lerp(head_2.scale, Vector2(1, 1), Accel * delta)
+		else :
+			head.scale = lerp(head.scale, Vector2(1, -1), Accel * delta)
+			head_2.scale = lerp(head_2.scale, Vector2(1, -1), Accel * delta)
+		head.look_at(User.PlayerPosition)
+		head_2.look_at(User.PlayerPosition)
 	else :
-		head.scale = lerp(head.scale, Vector2(1, -1), Accel * delta)
-	head.look_at(User.PlayerPosition)
-	if User.PlayerPosition.x >= global_position.x:
-		head_2.scale = lerp(head_2.scale, Vector2(1, 1), Accel * delta)
-	else :
-		head_2.scale = lerp(head_2.scale, Vector2(1, -1), Accel * delta)
-	head_2.look_at(User.PlayerPosition)
+		head.scale = lerp(head.scale, Vector2(Main.Dir, 1), Accel * delta)
+		head_2.scale = lerp(head_2.scale, Vector2(Main.Dir, 1), Accel * delta)
+		head.rotation_degrees = 0
+		head_2.rotation_degrees = 0
 
 func _physics_process(delta: float) -> void:
 	HeadFollow(delta)
@@ -63,7 +68,7 @@ func _physics_process(delta: float) -> void:
 
 func ArmsFollow(delta):
 	if User.PlayerPosition.x >= global_position.x:
-		arms.scale = lerp(arms.scale, Vector2(1, 1), Accel * delta)
+		arms.scale = lerp(arms.scale, Vector2(1, 1), ReactionAccel * delta)
 	else :
-		arms.scale = lerp(arms.scale, Vector2(1, -1), Accel * delta)
-	arms.look_at(User.PlayerPosition)
+		arms.scale = lerp(arms.scale, Vector2(1, -1), ReactionAccel * delta)
+	arms.look_at(User.PlayerPosition + LookPos)

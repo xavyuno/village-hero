@@ -16,7 +16,7 @@ run/main_scene="res://Game/Main/main.tscn"
 config/use_hidden_project_data_directory=false
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Village Hero"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [autoload]
 
@@ -46,7 +46,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/controller_icons/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/versatile-mobile-joystick/plugin.cfg")
+enabled=PackedStringArray("res://addons/ProceduralSceneGenerator2D/plugin.cfg", "res://addons/controller_icons/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/trail_2d/plugin.cfg", "res://addons/versatile-mobile-joystick/plugin.cfg")
 
 [file_customization]
 

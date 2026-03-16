@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Gun" load_steps=3 format=3 uid="uid://bx6fup5ga87ig"]
 
-[ext_resource type="Script" path="res://Game/Systems/Weapons/Guns/Main/GunCore.gd" id="1_1fxif"]
+[ext_resource type="Script" uid="uid://beinbal1w0b5k" path="res://Game/Systems/Weapons/Guns/Main/GunCore.gd" id="1_1fxif"]
 [ext_resource type="Texture2D" uid="uid://buvaovbphlqjo" path="res://Game/Assets/Icons/Weapons/Guns/Pistol.png" id="1_ytosf"]
 
 [resource]

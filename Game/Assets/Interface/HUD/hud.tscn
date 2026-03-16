@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv0eg12eb5kak"]
+[gd_scene load_steps=10 format=3 uid="uid://bv0eg12eb5kak"]
 
+[ext_resource type="Script" uid="uid://bw2lkwwygndgy" path="res://Game/Assets/Interface/HUD/hud.gd" id="1_kgwan"]
 [ext_resource type="PackedScene" uid="uid://45dljis6sxbq" path="res://Game/Assets/Interface/Inventory/inventory.tscn" id="1_wunab"]
 [ext_resource type="PackedScene" uid="uid://cvpm61rrxoyah" path="res://Game/Assets/Interface/Inventory/weapon_slot.tscn" id="2_icsn8"]
-[ext_resource type="Script" path="res://Game/Assets/Interface/HUD/slots.gd" id="2_kbc5s"]
+[ext_resource type="Script" uid="uid://cxig602epji7t" path="res://Game/Assets/Interface/HUD/slots.gd" id="2_kbc5s"]
 [ext_resource type="PackedScene" uid="uid://rtdp0qcm6dty" path="res://Game/Assets/Interface/GunHud/gun_hud.tscn" id="4_qjoje"]
+
+[sub_resource type="Gradient" id="Gradient_lbu4f"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.384314, 1, 0, 0.392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a67r8"]
+gradient = SubResource("Gradient_lbu4f")
+
+[sub_resource type="Gradient" id="Gradient_5gavo"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.609375, 0.552246, 0.392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qaaqe"]
+gradient = SubResource("Gradient_5gavo")
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -12,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kgwan")
 
 [node name="Inventory" parent="." instance=ExtResource("1_wunab")]
 layout_mode = 1
@@ -27,27 +43,50 @@ script = ExtResource("2_kbc5s")
 
 [node name="Slot1" parent="Slots" instance=ExtResource("2_icsn8")]
 layout_mode = 2
+action_mode = 0
 
 [node name="Slot2" parent="Slots" instance=ExtResource("2_icsn8")]
 layout_mode = 2
+action_mode = 0
 Slot = 2
 
 [node name="Slot3" parent="Slots" instance=ExtResource("2_icsn8")]
 layout_mode = 2
+action_mode = 0
 Slot = 3
 
 [node name="Slot4" parent="Slots" instance=ExtResource("2_icsn8")]
 layout_mode = 2
+action_mode = 0
 Slot = 4
 
 [node name="Slot5" parent="Slots" instance=ExtResource("2_icsn8")]
 layout_mode = 2
+action_mode = 0
 Slot = 5
 
 [node name="GunHud" parent="." instance=ExtResource("4_qjoje")]
 
-[node name="Label" type="Label" parent="."]
+[node name="Health" type="Label" parent="."]
 layout_mode = 0
-offset_left = 672.0
-offset_right = 864.0
+offset_left = 512.0
+offset_right = 768.0
 offset_bottom = 32.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1024.0
+offset_right = 1280.0
+offset_bottom = 32.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Progress" type="TextureProgressBar" parent="Level"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 32.0
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_a67r8")
+texture_progress = SubResource("GradientTexture1D_qaaqe")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://rtdp0qcm6dty"]
 
-[ext_resource type="Script" path="res://Game/Assets/Interface/GunHud/gun_hud.gd" id="1_w48qe"]
+[ext_resource type="Script" uid="uid://bxdvo14or738d" path="res://Game/Assets/Interface/GunHud/gun_hud.gd" id="1_w48qe"]
 
 [node name="GunHud" type="Control"]
 layout_mode = 3

@@ -60,7 +60,21 @@ func AddAmmo(Amount = 0):
 		else :
 			return 0
 	else :
-		Data[EquippedItem["Name"]]["MagSize"] += AmmoAmount
+		if EquippedItem["Type"] != "Gun":
+			for i in Data:
+				if Data[i]["Type"] == "Gun":
+					Guns.append(i)
+			if Guns.size() >= 1:
+				if User.DivideAmmo:
+					var DividedAmount := AmmoAmount / Guns.size()
+					for i in Guns:
+						Data[i]["MagSize"] += DividedAmount
+				else :
+					Data[Guns[0]]["MagSize"] += AmmoAmount
+			else :
+				return 0
+		else :
+			Data[EquippedItem["Name"]]["MagSize"] += AmmoAmount
 
 func SwitchItems(Slot: int):
 	match Slot:

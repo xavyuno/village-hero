@@ -4,7 +4,7 @@ class_name Item
 @export var Name := ""
 @export var Icon : Texture
 @export var Amount := 1
-@export var Scale := 0.4
+@export var Scale := 0.8
 @export_enum("Common", "Rare", "Epic", "Legendary", "Mythic", "Limited", "Seaonal", "Battlepas") var Rarity := PackedStringArray(["Common", "limited"])
 
 @export_category("Ammo")

@@ -5,6 +5,9 @@ var MainCursor := Vector2.ZERO
 var Device := "PC"
 var LastLookDir := 1
 
+func AddNode(NODE, PATH = "Enviroment"):
+	get_tree().current_scene.get_node("World/" + PATH).add_child(NODE)
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton:
 		Device = "Console"

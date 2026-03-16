@@ -31,7 +31,6 @@
 			"uuid": "5f3a9efc-c695-4c63-a4fa-846f045eae7d",
 			"title": "Todo",
 			"tasks": [
-				"54acd7bc-1bb1-4368-978d-2c24bc9b7919",
 				"7dd79bc1-b2fb-4d47-a8ae-ca3dd97c82cd",
 				"f126997c-4a2a-4d18-9742-8b23a74c345f",
 				"088f6610-6944-47b8-aef3-10d5e17e1775",
@@ -42,7 +41,7 @@
 			"uuid": "b513057a-39be-433c-b617-569654d1abd0",
 			"title": "Doing",
 			"tasks": [
-				"47e5cd08-2116-4d83-b98a-33d4adc288eb"
+				"54acd7bc-1bb1-4368-978d-2c24bc9b7919"
 			]
 		},
 		{
@@ -52,7 +51,8 @@
 				"4b7f219e-a239-41de-8a34-80af7c748c42",
 				"2e60df61-703f-4903-922e-e8034b8e15fe",
 				"b2e7b05e-3c88-4865-acfc-cbe3896a6f6f",
-				"105e0281-6927-4052-8a21-b29ce4205ce3"
+				"105e0281-6927-4052-8a21-b29ce4205ce3",
+				"47e5cd08-2116-4d83-b98a-33d4adc288eb"
 			]
 		},
 		{
@@ -276,19 +276,19 @@
 			"steps": [
 				{
 					"details": "AI",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Ranged",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Close Combat",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Drop Loot",
-					"done": false
+					"done": true
 				}
 			]
 		},

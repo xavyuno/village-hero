@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://2hj8sumbw83r"]
+
+[ext_resource type="Texture2D" uid="uid://dilvh3vjqywkk" path="res://Game/Assets/Icons/Shadow/Shadow.png" id="1_s26ui"]
+[ext_resource type="PackedScene" uid="uid://xw8mje78n3rw" path="res://Game/Assets/Scenes/Despawn/despawn.tscn" id="2_p10yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfhiq"]
+size = Vector2(4.5, 2)
+
+[node name="FootPrints" type="StaticBody2D" groups=["Footprint"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_xfhiq")
+
+[node name="Collision2" type="CollisionShape2D" parent="."]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_xfhiq")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-1, -0.75)
+scale = Vector2(0.3, 0.4)
+skew = 0.823795
+texture = ExtResource("1_s26ui")
+
+[node name="Shadow2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(9, -0.75)
+scale = Vector2(0.3, 0.4)
+skew = 0.823795
+texture = ExtResource("1_s26ui")
+
+[node name="Despawn" parent="." instance=ExtResource("2_p10yo")]
+wait_time = 2.5

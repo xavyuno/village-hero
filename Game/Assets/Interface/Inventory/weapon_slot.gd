@@ -53,27 +53,33 @@ func _physics_process(delta: float) -> void:
 			highlight.modulate = Color.GREEN
 
 func _on_pressed() -> void:
-	if Inventory.IsChangingSlot and Inventory.ChangingData["Type"] != "Amour":
-		match Slot:
-			1:
-				if Inventory.EquippedItem == Inventory.Slot1:
-					Inventory.UnEquip()
-				Inventory.Slot1 = Inventory.ChangingData
-			2:
-				if Inventory.EquippedItem == Inventory.Slot2:
-					Inventory.UnEquip()
-				Inventory.Slot2 = Inventory.ChangingData
-			3:
-				if Inventory.EquippedItem == Inventory.Slot3:
-					Inventory.UnEquip()
-				Inventory.Slot3 = Inventory.ChangingData
-			4:
-				if Inventory.EquippedItem == Inventory.Slot4:
-					Inventory.UnEquip()
-				Inventory.Slot4 = Inventory.ChangingData
-			5:
-				if Inventory.EquippedItem == Inventory.Slot5:
-					Inventory.UnEquip()
-				Inventory.Slot5 = Inventory.ChangingData
+	if Inventory.IsChangingSlot:
+		if Inventory.ChangingData["Type"] != "Amour":
+			match Slot:
+				1:
+					if Inventory.EquippedItem == Inventory.Slot1:
+						Inventory.UnEquip()
+					Inventory.Slot1 = Inventory.ChangingData
+				2:
+					if Inventory.EquippedItem == Inventory.Slot2:
+						Inventory.UnEquip()
+					Inventory.Slot2 = Inventory.ChangingData
+				3:
+					if Inventory.EquippedItem == Inventory.Slot3:
+						Inventory.UnEquip()
+					Inventory.Slot3 = Inventory.ChangingData
+				4:
+					if Inventory.EquippedItem == Inventory.Slot4:
+						Inventory.UnEquip()
+					Inventory.Slot4 = Inventory.ChangingData
+				5:
+					if Inventory.EquippedItem == Inventory.Slot5:
+						Inventory.UnEquip()
+					Inventory.Slot5 = Inventory.ChangingData
 		Inventory.IsChangingSlot = false
 		character.RefreshAll()
+	else:
+		if ItemData.size() >= 1:
+			Inventory.Equip(ItemData["Name"])
+		else :
+			Inventory.UnEquip()

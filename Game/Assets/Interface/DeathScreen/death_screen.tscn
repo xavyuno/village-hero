@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp7qj72c0sowg"]
+
+[ext_resource type="Script" uid="uid://ctxsq15nwuj4y" path="res://Game/Assets/Interface/DeathScreen/death_screen.gd" id="1_qbf0m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ueggn"]
+font_size = 196
+
+[node name="Death Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qbf0m")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 87.0
+offset_right = 1144.0
+offset_bottom = 355.0
+rotation = 0.261799
+text = "You DEd!"
+label_settings = SubResource("LabelSettings_ueggn")
+
+[node name="Rety" type="Button" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 466.0
+offset_right = 583.0
+offset_bottom = 626.0
+theme_override_font_sizes/font_size = 111
+text = "Retry"
+
+[connection signal="pressed" from="Rety" to="." method="_on_rety_pressed"]

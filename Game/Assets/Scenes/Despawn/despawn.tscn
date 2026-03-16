@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xw8mje78n3rw"]
 
-[ext_resource type="Script" path="res://Game/Assets/Scenes/Despawn/despawn.gd" id="1_ij176"]
+[ext_resource type="Script" uid="uid://brmjb40hkg4tv" path="res://Game/Assets/Scenes/Despawn/despawn.gd" id="1_ij176"]
 
 [node name="Despawn" type="Timer"]
 script = ExtResource("1_ij176")

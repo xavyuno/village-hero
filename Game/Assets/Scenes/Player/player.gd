@@ -2,11 +2,16 @@ extends CharacterBody2D
 
 @onready var BodyAnim: AnimationPlayer = $Body/BodyAnim
 @onready var HandAnim: AnimationPlayer = $Body/HandAnim
+@onready var regenerate: Timer = $Regenerate
 
 var Speed := 150.0
 var NormalSpeed := 150.0
 var SprintSpeed := 200.0
 var Accel := 8.5
+
+func _ready() -> void:
+	regenerate.wait_time = User.RegenSpeed
+	regenerate.start()
 
 func GetInputVel():
 	var motion : Vector2
@@ -40,4 +45,21 @@ func _physics_process(delta: float) -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Bullet"):
-		User.DamageTaken(body.GunData["Damage"])
+		if body.ParentName != "Player":
+			User.DamageTaken(body.GunData["Damage"])
+			body.queue_free()
+	if body.is_in_group("Sword"):
+		User.DamageTaken(body.get_parent().get_parent().Main.Slot1["Damage"])
+
+
+func _on_foottimer_timeout() -> void:
+	if velocity != Vector2.ZERO:
+		var Footprint = preload("res://Game/Assets/Scenes/Footprints/foot_prints.tscn").instantiate()
+		Footprint.global_position = $Foot.global_position
+		System.AddNode(Footprint)
+
+func _on_regenerate_timeout() -> void:
+	regenerate.wait_time = User.RegenSpeed
+	User.Health += User.RegenAmount
+	User.Protection += User.RegenAmount
+	regenerate.start()

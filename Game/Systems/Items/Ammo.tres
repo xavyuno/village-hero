@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://8uy83aesc13c"]
 
 [ext_resource type="Texture2D" uid="uid://1yno7tufsqoo" path="res://Game/Assets/Icons/Items/Ammo.png" id="1_3n67c"]
-[ext_resource type="Script" path="res://Game/Systems/Items/Main/ItemCore.gd" id="1_wcebh"]
+[ext_resource type="Script" uid="uid://camx2j171b3s" path="res://Game/Systems/Items/Main/ItemCore.gd" id="1_wcebh"]
 
 [resource]
 script = ExtResource("1_wcebh")

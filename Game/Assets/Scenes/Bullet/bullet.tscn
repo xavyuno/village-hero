@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://7muhawqvyi0k"]
 
-[ext_resource type="Script" path="res://Game/Assets/Scenes/Bullet/bullet.gd" id="1_gm866"]
+[ext_resource type="Script" uid="uid://wjxsa2tgla2n" path="res://Game/Assets/Scenes/Bullet/bullet.gd" id="1_gm866"]
 [ext_resource type="PackedScene" uid="uid://xw8mje78n3rw" path="res://Game/Assets/Scenes/Despawn/despawn.tscn" id="2_qtt3y"]
 
 [node name="Bullet" type="StaticBody2D" groups=["Bullet"]]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_gm866")
 
 [node name="Icon" type="Polygon2D" parent="."]

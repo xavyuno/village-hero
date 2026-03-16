@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Gun" load_steps=3 format=3 uid="uid://il4ahyabudj5"]
 
 [ext_resource type="Texture2D" uid="uid://dvhya7pva1y7a" path="res://Game/Assets/Icons/Weapons/Guns/Rifle.png" id="1_dxb1l"]
-[ext_resource type="Script" path="res://Game/Systems/Weapons/Guns/Main/GunCore.gd" id="1_yxf4q"]
+[ext_resource type="Script" uid="uid://beinbal1w0b5k" path="res://Game/Systems/Weapons/Guns/Main/GunCore.gd" id="1_yxf4q"]
 
 [resource]
 script = ExtResource("1_yxf4q")

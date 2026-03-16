@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://0mcoki7wn83b"]
 
-[ext_resource type="Script" path="res://Game/Systems/Items/Main/ItemCore.gd" id="1_8xt2i"]
+[ext_resource type="Script" uid="uid://camx2j171b3s" path="res://Game/Systems/Items/Main/ItemCore.gd" id="1_8xt2i"]
 [ext_resource type="Texture2D" uid="uid://by1it7vhfe4b5" path="res://Game/Assets/Icons/Items/Medkit.png" id="1_epg8q"]
 
 [resource]
@@ -8,4 +8,6 @@ script = ExtResource("1_8xt2i")
 Name = "Medkit"
 Icon = ExtResource("1_epg8q")
 Amount = 1
+Scale = 0.8
 Rarity = PackedStringArray("Rare")
+SetAmmo = 0
